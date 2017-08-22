@@ -12,18 +12,17 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
 
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
-            Debug.WriteLine(TextBox1.Text);
+        
+
+        Debug.WriteLine(TextBox1.Text);
             Debug.WriteLine(TextBox2.Text);
             Debug.WriteLine(TextBox3.Text);
- 
 
 
         }

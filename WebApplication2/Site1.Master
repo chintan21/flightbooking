@@ -87,7 +87,7 @@
     </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-log-in"></span>&nbspLogin</a></li>
-          
+        <li><a href="#" data-toggle="modal" data-target="#myModal1" ><span class="glyphicon glyphicon-log-in"></span>&nbspSignup</a></li>   
         
       </ul>
   </div>
@@ -114,7 +114,7 @@
                                                 <h4>User Name</h4>
                                             </div>
                                             <div class="col-xs-6">
-                                                <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="TextBox7" class="form-control" runat="server"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                                                 <h4>Password</h4>
                                             </div>
                                             <div class="col-xs-6">
-                                                <asp:TextBox ID="TextBox2" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                                                <asp:TextBox ID="TextBox8" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>               
@@ -135,7 +135,7 @@
                                             </div>
                                             
                                             <div class="col-xs-6" >
-                                                <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Login" />
+                                                <asp:Button ID="Button3" class="btn btn-primary" runat="server" Text="Login" OnClick="Button3_click" />
                                            
                                                 
                                             </div>
@@ -147,8 +147,8 @@
                                             </div>
                                             
                                             <div class="col-xs-6" style="text-align:right">
-                                                <a style="color:red">New User- Register</a><br />
-                                                <a style="color:red">Reset Password</a>
+                                                <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
+                                                <a style="color:red">Forgot password ?</a>
                                             </div>
                                         </div>                              
                         </div>
@@ -163,6 +163,68 @@
     </div>
   </div>
   </div> 
+        <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign up </h4>
+        </div>
+        <div class="modal-body">
+           <div class="row">
+             <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group" >
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <h4>Email ID</h4>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <asp:TextBox ID="TextBox9" class="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                        <div class="form-group" >
+                         <div class="row">
+                                            <div class="col-xs-6">
+                                                <h4>Mobile No</h4>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <asp:TextBox ID="TextBox10" class="form-control" runat="server" TextMode="number"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>       
+                      <div class="form-group" >
+                         <div class="row">
+                                            <div class="col-xs-6">
+                                                <h4>Password</h4>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <asp:TextBox ID="TextBox11" class="form-control" runat="server" TextMode="password"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>      
+                        <div class="form-group" >
+                                      
+                                            
+                                            <div class="col-xs-6" >
+                                                
+                                                <asp:Button ID="Button4"  class="btn btn-primary" runat="server" Text="Sign up" OnClick="Button4_click" />
+                                           
+                                                
+                                            </div>
+                                        </div>                              
+                        
+         
+           </div>      
+        </div>
+      
+      </div>
+      
+    </div>
+  </div>
+  </div>
 <footer class="container-fluid text-center" style="background-color: rgba(252, 223, 223, 0.07); color:black;">
   <p>© 2017 Flight Ticket Booking . All Rights Reserved.</p>
     <p>Created by Chintan Dabhi, Rohan Dhamecha & Taral Thakkar.</p>
