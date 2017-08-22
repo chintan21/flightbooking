@@ -37,7 +37,7 @@
                                     <div class="form-group" style="color: white">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="TextBox1" class="form-control" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                                             </div>
                                             <div class="col-xs-6">
                                                 <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox>
@@ -77,7 +77,7 @@
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <select class="form-control" id="sel1">
+                                                    <select class="form-control" id="sel1" onchange="run()" >
                                                         <option>1</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -107,9 +107,8 @@
 
                                                     <select class="form-control" id="sel3">
                                                         <option>Economy</option>
-                                                        <option>Premium Economy</option>
                                                         <option>Business</option>
-                                                        <option>First Class</option>
+                                                       
                                                     </select>
                                                 </div>
                                             </div>
@@ -121,7 +120,7 @@
                                                 <asp:TextBox ID="TextBox3" class="form-control" runat="server">Promotional Code</asp:TextBox>
                                             </div> 
                                             <div class="col-sm-6">
-                                                <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Search Flights" />
+                                                <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Search Flights" OnClick="Button1_Click" />
                                             </div>
                                         </div>
                                     </div>
@@ -231,9 +230,9 @@
 
                                                     <select class="form-control" id="sel6">
                                                         <option>Economy</option>
-                                                        <option>Premium Economy</option>
+                                                       
                                                         <option>Business</option>
-                                                        <option>First Class</option>
+                                                      
                                                     </select>
                                                 </div>
                                             </div>
@@ -245,7 +244,7 @@
                                                 <asp:TextBox ID="TextBox6" class="form-control" runat="server">Promotional Code</asp:TextBox>
                                             </div> 
                                             <div class="col-sm-6">
-                                                <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Search Flights" />
+                                                <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Search Flights" OnClick="Button2_Click" />
                                             </div>
                                         </div>
                                     </div>
