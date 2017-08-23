@@ -34,13 +34,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group" style="color: white">
+                                    <div class="form-group" style="color: black">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <asp:TextBox ID="TextBox1" class="form-control" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                                               <!-- <asp:TextBox ID="TextBox1" class="form-control" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>-->
+                                                <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
                                             </div>
                                             <div class="col-xs-6">
-                                                <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox>
+                                                <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +58,8 @@
                                     <div class="form-group" style="color: white">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <input class="form-control" id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                               <input class="form-control" id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                                
                                             </div>
                                             
                                         </div>
@@ -77,39 +81,43 @@
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <select class="form-control" id="sel1" onchange="run()" >
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                    </select>
+                                                    
+                                                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>1</asp:ListItem>
+                                                        <asp:ListItem>2</asp:ListItem>
+                                                        <asp:ListItem>3</asp:ListItem>
+                                                        <asp:ListItem>4</asp:ListItem>
+                                                        <asp:ListItem>5</asp:ListItem>
+                                                        <asp:ListItem>6</asp:ListItem>
+                                                        <asp:ListItem>7</asp:ListItem>
+                                                        <asp:ListItem>8</asp:ListItem>
+                                                    
+                                                    </asp:DropDownList>
+                                                        
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <select class="form-control" id="sel2">
-                                                        <option>0</option>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                    </select>
+                                                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>0</asp:ListItem>
+                                                        <asp:ListItem>1</asp:ListItem>
+                                                        <asp:ListItem>2</asp:ListItem>
+                                                        <asp:ListItem>3</asp:ListItem>
+                                                        <asp:ListItem>4</asp:ListItem>
+                                                        
+                                                    </asp:DropDownList>
+                                                    
+                                                    
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-
-                                                    <select class="form-control" id="sel3">
-                                                        <option>Economy</option>
-                                                        <option>Business</option>
-                                                       
-                                                    </select>
+                                                    <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>Economy</asp:ListItem>
+                                                        <asp:ListItem>Business</asp:ListItem>
+                                                        
+                                                    </asp:DropDownList>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -154,12 +162,15 @@
                                     </div>
 
                                     <div class="form-group" style="color: white">
-                                        <div class="row">
+                                            <div class="row">
                                             <div class="col-xs-6">
-                                                <asp:TextBox ID="TextBox4" class="form-control" runat="server"></asp:TextBox>
+                                             
+                                                <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
                                             </div>
                                             <div class="col-xs-6">
-                                                <asp:TextBox ID="TextBox5" class="form-control" runat="server"></asp:TextBox>
+                                                <asp:DropDownList ID="DropDownList10" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
                                             </div>
                                         </div>
                                     </div>
@@ -197,43 +208,46 @@
                                         </div>
                                     </div>
                                     <div class="form-group" style="color: white">
-                                        <div class="row">
+                                      <div class="row">
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <select class="form-control" id="sel4">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                    </select>
+                                                    
+                                                    <asp:DropDownList ID="DropDownList4" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>1</asp:ListItem>
+                                                        <asp:ListItem>2</asp:ListItem>
+                                                        <asp:ListItem>3</asp:ListItem>
+                                                        <asp:ListItem>4</asp:ListItem>
+                                                        <asp:ListItem>5</asp:ListItem>
+                                                        <asp:ListItem>6</asp:ListItem>
+                                                        <asp:ListItem>7</asp:ListItem>
+                                                        <asp:ListItem>8</asp:ListItem>
+                                                    
+                                                    </asp:DropDownList>
+                                                        
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-                                                    <select class="form-control" id="sel5">
-                                                        <option>0</option>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                    </select>
+                                                    <asp:DropDownList ID="DropDownList5" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>0</asp:ListItem>
+                                                        <asp:ListItem>1</asp:ListItem>
+                                                        <asp:ListItem>2</asp:ListItem>
+                                                        <asp:ListItem>3</asp:ListItem>
+                                                        <asp:ListItem>4</asp:ListItem>
+                                                        
+                                                    </asp:DropDownList>
+                                                    
+                                                    
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
-
-                                                    <select class="form-control" id="sel6">
-                                                        <option>Economy</option>
-                                                       
-                                                        <option>Business</option>
-                                                      
-                                                    </select>
+                                                    <asp:DropDownList ID="DropDownList6" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>Economy</asp:ListItem>
+                                                        <asp:ListItem>Business</asp:ListItem>
+                                                        
+                                                    </asp:DropDownList>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -259,7 +273,7 @@
                         <link href="css/jquery-ui.css" rel="stylesheet" />
                         <script>
                             $(function () {
-                                $("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker();
+                                $("#datepicker,#datepicker1,#datepicker2,#datepicker3,#TextBox13").datepicker();
                             });
                         </script>
 
