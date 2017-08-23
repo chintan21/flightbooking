@@ -31,6 +31,7 @@ namespace WebApplication2
             String b = TextBox9.Text;
             String b1 = TextBox10.Text;
             String b2 = TextBox11.Text;
+            String b3 = TextBox12.Text;
             String ab = "insert into signup(email,mobileno,password)values(@email,@mobileno,@password)";
 
             SqlCommand cmd = new SqlCommand();
@@ -54,23 +55,30 @@ namespace WebApplication2
 
             if (count == 0)
             {
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = ab;
-                cmd.Parameters.AddWithValue("@email", b);
-                cmd.Parameters.AddWithValue("@mobileno", b1);
-                cmd.Parameters.AddWithValue("@password", b2);
+                if (b3 == b2)
+                {
 
-                cmd.ExecuteNonQuery();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = ab;
+                    cmd.Parameters.AddWithValue("@email", b);
+                    cmd.Parameters.AddWithValue("@mobileno", b1);
+                    cmd.Parameters.AddWithValue("@password", b2);
 
-                String ab1 = "insert into login(email,password)values(@email,@password)";
+                    cmd.ExecuteNonQuery();
 
-                SqlCommand cmd1 = new SqlCommand();
-                cmd1.Connection = con;
-                cmd1.CommandText = ab1;
-                cmd1.Parameters.AddWithValue("@email", b);
-                cmd1.Parameters.AddWithValue("@password", b2);
-                cmd1.ExecuteNonQuery();
+                    String ab1 = "insert into login(email,password)values(@email,@password)";
 
+                    SqlCommand cmd1 = new SqlCommand();
+                    cmd1.Connection = con;
+                    cmd1.CommandText = ab1;
+                    cmd1.Parameters.AddWithValue("@email", b);
+                    cmd1.Parameters.AddWithValue("@password", b2);
+                    cmd1.ExecuteNonQuery();
+                }
+                else
+                {
+                    Button4.Enabled = false;
+                }
                 con.Close();
             }
         }
@@ -98,6 +106,12 @@ namespace WebApplication2
                     if (dt.Rows[i]["password"].ToString()==a1)
                     {
                         Debug.WriteLine("You have successfully login");
+                        Label2.Text = a;
+                        Label3.Visible = false;
+                        Label4.Visible = false;
+                        Label2.Visible = true;
+
+
                         break;
                        
                     }

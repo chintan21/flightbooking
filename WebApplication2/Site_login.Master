@@ -1,0 +1,110 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site_login.master.cs" Inherits="WebApplication2.Site_login" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+   
+   
+<style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    body {
+        background-image: url(Images/1.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+        height: 450px
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+        padding-top: 20px;
+        background-color: #f1f1f1;
+        height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+        background-color: #555;
+        color: white;
+        padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+        .sidenav {
+            height: auto;
+            padding: 15px;
+        }
+
+        .row.content {
+            height: auto;
+        }
+    }
+</style>
+  <!--  <script>
+      $(document).ready(function () {
+          $("li").click(function () {
+              $(this).attr("class", "active");
+          });
+      });
+  </script>-->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="Default.aspx"><img src="Images/udaan_logo.png" height="30px";width="40px" /></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active" ><a href="Default.aspx">Home</a></li>
+        <li><a href="#">Special Offers</a></li>
+          <li><a href="#">My Booking</a></li>
+          <li><a href="#">Baggage</a></li>
+          <li ><a href="contact_us.aspx">Contact US</a></li>
+        
+    </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
+        </li>   
+        
+      </ul>
+  </div>
+</nav>
+            <p></p>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+<footer class="container-fluid text-center" style="background-color: rgba(252, 223, 223, 0.07); color:black;">
+  <p>© 2017 Flight Ticket Booking . All Rights Reserved.</p>
+    <p>Created by Chintan Dabhi, Rohan Dhamecha & Taral Thakkar.</p>
+</footer>
+        
+        
+        
+    </form>
+ </body>
+</html>

@@ -86,9 +86,9 @@
         
     </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-log-in"></span>&nbspLogin</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#myModal1" ><span class="glyphicon glyphicon-log-in"></span>&nbspSignup</a></li>   
-        
+        <li><a href="#" data-toggle="modal" data-target="#myModal" ><asp:Label ID="Label3" runat="server" Visible="True"><span class="glyphicon glyphicon-log-in"></span>&nbspLogin</asp:Label></a></li>
+        <li><a href="#" data-toggle="modal" data-target="#myModal1" ><asp:Label ID="Label4" runat="server" Visible="True"><span class="glyphicon glyphicon-user"></span>&nbspSignup</asp:Label>
+            <asp:Label ID="Label2" runat="server" Visible="False" ></asp:Label></a></li>   
       </ul>
   </div>
 </nav>
@@ -202,6 +202,16 @@
                                             </div>
                                             <div class="col-xs-6">
                                                 <asp:TextBox ID="TextBox11" class="form-control" runat="server" TextMode="password"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div> 
+                 <div class="form-group" >
+                         <div class="row">
+                                            <div class="col-xs-6">
+                                                <h4>Confirm Password</h4>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <asp:TextBox ID="TextBox12" class="form-control" runat="server" TextMode="password"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>      
