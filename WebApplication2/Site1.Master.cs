@@ -13,7 +13,8 @@ namespace WebApplication2
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
-        int count = 0;
+       static int count = 0;
+        static int count2 = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,19 +42,19 @@ namespace WebApplication2
             SqlDataAdapter adp = new SqlDataAdapter("select email from login", con);
 
             adp.Fill(dt);
-            int count = 0;
+            int count1 = 0;
             for(int i=0;i<dt.Rows.Count;i++)
             {
                 if((dt.Rows[i]["email"].ToString())==b)
                 {
-                    count = count + 1;
+                    count1 = count1 + 1;
                     Debug.WriteLine("Account already exists");
                     break;
                     
                 }
             }
 
-            if (count == 0)
+            if (count1 == 0)
             {
                 if (b3 == b2)
                 {
@@ -107,9 +108,10 @@ namespace WebApplication2
                     {
                         Debug.WriteLine("You have successfully login");
                         Label2.Text = a;
-                        Label3.Visible = false;
-                        Label4.Visible = false;
-                        Label2.Visible = true;
+                        Response.Redirect("WebForm4.aspx?user="+a);
+                        
+                            
+                        
 
 
                         break;
@@ -128,6 +130,13 @@ namespace WebApplication2
               //  Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Account doesn't exist');", true);
 
                 Debug.WriteLine("Account doesn't exist");
+            }
+
+            if(count2==1)
+            {
+                Label3.Visible = false;
+                Label4.Visible = false;
+                Label2.Visible = true;
             }
 
 

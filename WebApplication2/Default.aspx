@@ -1,6 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication2.WebForm2" %>
+﻿<%@ Page Title="search flight" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication2.WebForm2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
+    
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary" style="background-color: rgba(3, 3, 3, 0.57)">
@@ -38,9 +40,9 @@
                                         <div class="row">
                                             <div class="col-xs-6">
                                                <!-- <asp:TextBox ID="TextBox1" class="form-control" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>-->
-                                                <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
+                                                <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidateRequestMode="Enabled" ValidationGroup="CompareValidator1"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
-                                            </div>
+                                           </div>
                                             <div class="col-xs-6">
                                                 <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
@@ -165,9 +167,10 @@
                                             <div class="row">
                                             <div class="col-xs-6">
                                              
-                                                <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
+                                                <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidationGroup="CompareValidator2"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
-                                            </div>
+]
+                                                </div>
                                             <div class="col-xs-6">
                                                 <asp:DropDownList ID="DropDownList10" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
