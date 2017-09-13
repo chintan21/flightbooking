@@ -8,7 +8,7 @@
                  <div class="panel-body">
                       <div class="tab-content">
                           <p>
-                              <h3 style="color:white">If you have any questions regarding our products or services, please contact us by calling or e-mailing us. We will get back to you as soon as possible.</h3>
+                              <h3 style="color:white"> &nbsp;  &nbsp;  &nbsp;  &nbsp; If you have any questions regarding our products or services, please contact us by calling or e-mailing us. We will get back to you as soon as possible.</h3>
                           </p>
                           
                           <div class="form-group" style="color: white">
@@ -50,10 +50,56 @@
                           <div class="form-group" style="color: white">
                                         <div class="row">
                                             <div class="col-xs-6">
+                                                <div class="col-xs-8">
+
+                                                    <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                                     </div>
+                                                </div>
+                                        <div class="col-xs-6">
+                                            <div class="col-xs-8">   
+                                                         <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                                </div>
+                                            </div>
+
 
       
                                                 </div>
                                             </div>
+
+                          <div class="form-group" style="color: white">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <h4>Description</h4>
+                                            </div>
+                                            </div>
+                               <div class="form-group" style="color: white">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+
+                          <div class="form-group" style="color: white">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                    <asp:TextBox ID="TextBox5" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+
+                                                </div>
+                                            </div>
+                              </div>
+
+
+
+                          </div>
+                               <div class="form-group" style="color: black">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-12">
+                                                    <asp:Button ID="Button1" runat="server" Text="Submit your Message" BackColor="#0099FF" BorderColor="#0099FF" Font-Size="18pt" ForeColor="White" Height="50px" />
+                                                    </div>
+                                                </div>
+
+
+                     </div>
                               </div>
                           </div>
                           
