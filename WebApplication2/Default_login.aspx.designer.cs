@@ -10,7 +10,7 @@
 namespace WebApplication2 {
     
     
-    public partial class WebForm2 {
+    public partial class WebForm3 {
         
         /// <summary>
         /// DropDownList7 control.

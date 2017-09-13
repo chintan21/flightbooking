@@ -107,11 +107,15 @@ namespace WebApplication2
                     if (dt.Rows[i]["password"].ToString()==a1)
                     {
                         Debug.WriteLine("You have successfully login");
-                        Label2.Text = a;
-                        Response.Redirect("WebForm4.aspx?user="+a);
+                        //Label2.Text = a;
+                        Debug.WriteLine(a);
+                        String url = (String.Format("Default_login.aspx?user={0}",a));
                         
-                            
-                        
+                        Response.Redirect(url,false);
+
+
+
+
 
 
                         break;

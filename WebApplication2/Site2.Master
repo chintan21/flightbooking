@@ -74,30 +74,34 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
         <div>
+ 
             <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="Default.aspx"><img src="Images/udaan_logo.png" height="30px";width="40px" /></a>
+      <a class="navbar-brand" href="Default_login.aspx"><img src="Images/udaan_logo.png" height="30px";width="40px" /></a>
     </div>
     <ul class="nav navbar-nav">
-      <li ><a class="active"href="Default.aspx">Home</a></li>
+        
+      <li ><a class="active"href="Default_login.aspx">Home</a></li>
         <li><a href="#">Special Offers</a></li>
           <li><a href="#">My Booking</a></li>
           <li><a href="#">Baggage</a></li>
-          <li ><a href="contact_us.aspx">Contact US</a></li>
+          <li ><a href=url>Contact US</a></li>
         
     </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>&nbspLogin</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
         
+            <a><li><asp:Label ID="Label2" runat="server" Visible="true"  ></asp:Label></a></li>   
       </ul>
   </div>
 </nav>
+            
             <p></p>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+         
         </div>
     </form>
 
