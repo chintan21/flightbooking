@@ -1,7 +1,6 @@
-﻿<%@ Page Title="search flight" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication2.WebForm2" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="false" CodeBehind="Default_login.aspx.cs" Inherits="WebApplication2.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
+
     
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -39,8 +38,8 @@
                                     <div class="form-group" style="color: black">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                              
-                                            <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidateRequestMode="Enabled" ValidationGroup="CompareValidator1"></asp:DropDownList>
+                                               
+                                                <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidateRequestMode="Enabled" ValidationGroup="CompareValidator1"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
                                            </div>
                                             <div class="col-xs-6">
@@ -130,7 +129,7 @@
                                                 <asp:TextBox ID="TextBox3" class="form-control" runat="server">Promotional Code</asp:TextBox>
                                             </div> 
                                             <div class="col-sm-6">
-                                                <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Search Flights" OnClick="Button1_Click" />
+                                                <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Search Flights" OnClick="Button1_Click"/>
                                             </div>
                                         </div>
                                     </div>
@@ -169,7 +168,7 @@
                                              
                                                 <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidationGroup="CompareValidator2"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
-
+]
                                                 </div>
                                             <div class="col-xs-6">
                                                 <asp:DropDownList ID="DropDownList10" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
@@ -261,7 +260,7 @@
                                                 <asp:TextBox ID="TextBox6" class="form-control" runat="server">Promotional Code</asp:TextBox>
                                             </div> 
                                             <div class="col-sm-6">
-                                                <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Search Flights" OnClick="Button2_Click" />
+                                                <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Search Flights"  />
                                             </div>
                                         </div>
                                     </div>
