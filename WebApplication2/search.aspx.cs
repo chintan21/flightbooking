@@ -19,14 +19,11 @@ namespace WebApplication2
 
             if (Request.QueryString.Count > 0)
             {
-
                 var queryStrings = (Request.QueryString.ToString());
                 var arrQueryStrings = queryStrings.Split('&');
 
-
                 String src = arrQueryStrings[0];
                 String dest = arrQueryStrings[1];
-
                 String constring = ConfigurationManager.ConnectionStrings["flight"].ConnectionString;
 
                 SqlConnection con = new SqlConnection(constring);

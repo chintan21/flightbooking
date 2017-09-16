@@ -26,7 +26,7 @@ namespace WebApplication2
            String dest = DropDownList8.SelectedValue;
            String url = (String.Format("search.aspx?{0}&{1}", src, dest));
            Response.Redirect(url);
-
+        
            
         }
 
@@ -35,9 +35,11 @@ namespace WebApplication2
             
         }
 
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        protected void TextBox15_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

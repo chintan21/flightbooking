@@ -39,7 +39,6 @@
                                     <div class="form-group" style="color: black">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                               <!-- <asp:TextBox ID="TextBox1" class="form-control" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>-->
                                                 <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidateRequestMode="Enabled" ValidationGroup="CompareValidator1"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
                                            </div>
@@ -60,10 +59,14 @@
                                     <div class="form-group" style="color: white">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                               <input class="form-control" id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
-                                                
+                                               <!--<input class="form-control" id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                                -->
+                                                <asp:TextBox ID="TextBox15" runat="server" Enabled="False" OnTextChanged="TextBox15_TextChanged" CssClass="form-control"></asp:TextBox>
+                            
                                             </div>
-                                            
+                                            <div class="col-xs-6">
+                                               
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group" style="color: white">
@@ -190,7 +193,7 @@
                                     <div class="form-group" style="color: white">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <input class="form-control" id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                                <asp:TextBox ID="TextBox20" runat="server" Visible="False"></asp:TextBox>
                                             </div>
                                             <div class="col-xs-6">
                                                 <input class="form-control" id="datepicker2" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">

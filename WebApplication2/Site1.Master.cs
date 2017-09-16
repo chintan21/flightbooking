@@ -18,7 +18,7 @@ namespace WebApplication2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            
 
         }
 
@@ -107,13 +107,11 @@ namespace WebApplication2
                     if (dt.Rows[i]["password"].ToString()==a1)
                     {
                         Debug.WriteLine("You have successfully login");
+                        
+
                         Label2.Text = a;
-                        Response.Redirect("WebForm4.aspx?user="+a);
+                        Session["user"] = a;
                         
-                            
-                        
-
-
                         break;
                        
                     }
@@ -131,13 +129,13 @@ namespace WebApplication2
 
                 Debug.WriteLine("Account doesn't exist");
             }
-
-            if(count2==1)
+            if (count2 == 1)
             {
                 Label3.Visible = false;
                 Label4.Visible = false;
                 Label2.Visible = true;
             }
+
 
 
         }

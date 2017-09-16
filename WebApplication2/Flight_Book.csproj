@@ -71,7 +71,6 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
-    <Content Include="contact_us.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -96,11 +95,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="personaldetails.aspx" />
+    <Content Include="Searchresult.aspx" />
     <Content Include="Site1.Master" />
     <Content Include="Default.aspx" />
     <Content Include="Site2.Master" />
     <Content Include="WebForm3.aspx" />
     <Content Include="search.aspx" />
+    <Content Include="WebForm5.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,14 +117,21 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="contact_us.aspx.cs">
-      <DependentUpon>contact_us.aspx</DependentUpon>
+    <Compile Include="personaldetails.aspx.cs">
+      <DependentUpon>personaldetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="contact_us.aspx.designer.cs">
-      <DependentUpon>contact_us.aspx</DependentUpon>
+    <Compile Include="personaldetails.aspx.designer.cs">
+      <DependentUpon>personaldetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Searchresult.aspx.cs">
+      <DependentUpon>Searchresult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Searchresult.aspx.designer.cs">
+      <DependentUpon>Searchresult.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +173,13 @@
     </Compile>
     <Compile Include="search.aspx.designer.cs">
       <DependentUpon>search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>
