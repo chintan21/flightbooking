@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Net.Mail;
 
 namespace WebApplication2
 {
@@ -109,9 +110,24 @@ namespace WebApplication2
                         Debug.WriteLine("You have successfully login");
                         //Label2.Text = a;
                         Debug.WriteLine(a);
-                        String url = (String.Format("Default_login.aspx?user={0}",a));
+                        String url = (String.Format("Default_login.aspx?user={0}", a));
+
+                        Response.Redirect(url, false);
+                       /* MailMessage mail = new MailMessage();
+                        mail.To.Add(a);
+                        //mail.From = new MailAddress("rohandhamecha45@gmail.com");
+                        mail.Subject = "Login to UDAAN";
+                        String Body = "you have logged in successfully to UDAAN.";
+                        mail.Body = Body;
+                        SmtpClient smtp = new SmtpClient();
+                        //smtp.Host = "smtp.gmail.com";
+                        //smtp.Port = 587;
+                        //smtp.UseDefaultCredentials = false;
+                        //smtp.Credentials = new System.Net.NetworkCredential("rohandhamecha45@gmail.com","24111974");
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);*/
+
                         
-                        Response.Redirect(url,false);
 
 
 
@@ -143,6 +159,7 @@ namespace WebApplication2
                 Label2.Visible = true;
             }
 
+            
 
         }
 
