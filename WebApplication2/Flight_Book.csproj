@@ -71,7 +71,7 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
-    <Content Include="Contact_login.aspx" />
+    <Content Include="Baggage.aspx" />
     <Content Include="contact_us.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
@@ -80,6 +80,8 @@
     <Content Include="css\jquery-ui.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\1.jpg" />
+    <Content Include="Images\cabin-baggage.jpg" />
+    <Content Include="Images\cabin-baggage.png" />
     <Content Include="Images\img-sp.png" />
     <Content Include="Images\udaan_logo.png" />
     <Content Include="js\bootstrap.js" />
@@ -116,12 +118,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contact_login.aspx.cs">
-      <DependentUpon>Contact_login.aspx</DependentUpon>
+    <Compile Include="Baggage.aspx.cs">
+      <DependentUpon>Baggage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact_login.aspx.designer.cs">
-      <DependentUpon>Contact_login.aspx</DependentUpon>
+    <Compile Include="Baggage.aspx.designer.cs">
+      <DependentUpon>Baggage.aspx</DependentUpon>
     </Compile>
     <Compile Include="contact_us.aspx.cs">
       <DependentUpon>contact_us.aspx</DependentUpon>
