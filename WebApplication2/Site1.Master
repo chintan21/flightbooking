@@ -219,12 +219,7 @@
                                             </div>
                                             <div class="col-xs-6">
                                                 <asp:TextBox ID="TextBox11" class="form-control" runat="server" TextMode="password" data-toggle="popover" data-placement="right" title="ITS GOOD"></asp:TextBox>
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidatorpassword" runat="server" 
-                                                    ErrorMessage="one Uppercase letter,one Lower case,one digit,6-13 length"
-                                                    ForeColor="Red"
-                                                    ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,13}$"
-                                                    ControlToValidate="TextBox11" 
-                                                    ></asp:RegularExpressionValidator>
+                                                
                                             </div>
                                         </div>
                                     </div> 
