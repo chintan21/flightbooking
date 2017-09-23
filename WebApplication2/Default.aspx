@@ -40,9 +40,10 @@
                                         <div class="row">
                                             <div class="col-xs-6">
                                               
-                                            <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidateRequestMode="Enabled" ValidationGroup="CompareValidator1"></asp:DropDownList>
+                                            <asp:DropDownList ID="DropDownList7" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidateRequestMode="Enabled"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
-                                           </div>
+                                                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="*Source & Destination can't be same" ControlToCompare="DropDownList8" CultureInvariantValues="False" ControlToValidate="DropDownList7" Operator="NotEqual" ForeColor="Red"></asp:CompareValidator>
+                                            </div>
                                             <div class="col-xs-6">
                                                 <asp:DropDownList ID="DropDownList8" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
@@ -60,7 +61,10 @@
                                     <div class="form-group" style="color: white">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                               <input class="form-control" id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+                                                <asp:TextBox ID="TextBox1" runat="server" Enabled="False" CssClass="form-control"></asp:TextBox>
+                                               
+                                                
+                                          
                                                 
                                             </div>
                                             
@@ -130,7 +134,11 @@
                                                 <asp:TextBox ID="TextBox3" class="form-control" runat="server">Promotional Code</asp:TextBox>
                                             </div> 
                                             <div class="col-sm-6">
-                                                <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Search Flights" OnClick="Button1_Click" />
+          
+                                                <asp:Button ID="OnewaySearch" class="btn btn-primary" runat="server" Text="Search Flights" OnClick="OnewaySearch_Click" />
+                                                
+                                            
+                                            
                                             </div>
                                         </div>
                                     </div>
@@ -167,9 +175,9 @@
                                             <div class="row">
                                             <div class="col-xs-6">
                                              
-                                                <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control" ValidationGroup="CompareValidator2"></asp:DropDownList>
+                                                <asp:DropDownList ID="DropDownList9" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
                                                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name] FROM [airport] ORDER BY [name]"></asp:SqlDataSource>
-
+                                              <!--  <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="*Source & Destination can't be same" ControlToCompare="DropDownList10" CultureInvariantValues="False" ControlToValidate="DropDownList9" Operator="NotEqual"></asp:CompareValidator>-->
                                                 </div>
                                             <div class="col-xs-6">
                                                 <asp:DropDownList ID="DropDownList10" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" CssClass="form-control"></asp:DropDownList>
@@ -261,7 +269,7 @@
                                                 <asp:TextBox ID="TextBox6" class="form-control" runat="server">Promotional Code</asp:TextBox>
                                             </div> 
                                             <div class="col-sm-6">
-                                                <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="Search Flights" OnClick="Button2_Click" />
+                                                <asp:Button ID="Button2" class="btn btn-primary" runat="server" OnClick="Button2_Click" Text="Search Flights" />
                                             </div>
                                         </div>
                                     </div>

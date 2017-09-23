@@ -37,6 +37,9 @@ namespace WebApplication2
                 DataTable dt3 = new DataTable();
                 DataTable dt4 = new DataTable();
                 DataTable dt5 = new DataTable();
+                DataTable dt6 = new DataTable();
+               
+
                 dt4.Columns.Add("fid");
                 dt4.Columns.Add("air_id");
                 dt4.Columns.Add("src_airp");
@@ -52,13 +55,47 @@ namespace WebApplication2
                 dt5.Columns.Add("dest_airp");
                 dt5.Columns.Add("dept_time");
                 dt5.Columns.Add("arr_time");
-                
+
+               
+
+               
+
                 SqlDataAdapter adp = new SqlDataAdapter("Select airport from distance where " + src + "<=500  and " + src + " >0", con);
-                adp.Fill(dt1);
+                adp.Fill(dt6);
 
                 adp.SelectCommand = new SqlCommand("Select airport from distance where " + dest + "<=500 and " + dest + ">0", con);
-                adp.Fill(dt1);
+                adp.Fill(dt6);
+                String midc;
+
                
+                for (int i=0;i<dt6.Rows.Count;i++)
+                {
+                    int cnt=0;
+                    
+                    
+                    midc = dt6.Rows[i].ToString();
+
+                    for(int j=i+1;j<dt6.Rows.Count;i++)
+                    {
+                        if(dt6.Rows[j].ToString()==midc)
+                        {
+                            cnt++;
+                            break;
+                        }
+
+                    }
+                    
+                    if (cnt==0)
+                    {
+
+                        DataRow dr = dt6.Rows[i];
+                        dr.Delete();
+                        dt6.AcceptChanges();
+                    }
+                    
+                    
+                    
+                }
 
                 dt.Reset();
                 SqlDataAdapter adp2 = new SqlDataAdapter("select * from flights where src_airp='" + src + "' and dest_airp='" + dest + "' ", con);
@@ -66,17 +103,19 @@ namespace WebApplication2
                 String mid;
                 int count = 0;
                 dt4.Reset();
-              
-                for (int i = 0; i < dt1.Rows.Count; i++)
-                {
-                    
-                    mid = (dt1.Rows[i]["airport"]).ToString();
+           
 
-                    adp.SelectCommand = new SqlCommand("select * from flights where src_airp='" + src + "' and dest_airp='" + mid + "'", con);
-                    adp.Fill(dt2);
-                    adp.SelectCommand = new SqlCommand("select * from flights where src_airp='" + mid + "' and dest_airp='" + dest + "'", con);
-                    adp.Fill(dt3);
-                    if (dt2.Rows.Count != 0 && dt3.Rows.Count != 0)
+                for (int i = 0; i < dt6.Rows.Count; i++)
+                {
+                   
+                        mid = (dt6.Rows[i]["airport"]).ToString();
+
+                        adp.SelectCommand = new SqlCommand("select * from flights where src_airp='" + src + "' and dest_airp='" + mid + "'", con);
+                        adp.Fill(dt2);
+                        adp.SelectCommand = new SqlCommand("select * from flights where src_airp='" + mid + "' and dest_airp='" + dest + "'", con);
+                        adp.Fill(dt3);
+                    
+                        if (dt2.Rows.Count != 0 && dt3.Rows.Count != 0)
                     {
                         dt4 = dt2.Clone();
                         dt4 = dt3.Clone();

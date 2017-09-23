@@ -1,24 +1,63 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.UI;
 
 namespace WebApplication2
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
-       static int count = 0;
+        static int count = 0;
         static int count2 = 0;
+        static String a;
+        static int count3 = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+           if(count3>0)
+
+            {
+                String temp = "taral12@gmail.com";
+                if (a == temp)
+                {
+                    var queryStrings = (Request.QueryString.ToString());
+                    var arrQueryStrings = queryStrings.Split('=');
+                    Label3.Visible = false;
+                    Label4.Visible = false;
+                    Label2.Visible = true;
+                    var arr1 = a.Split('@');
+                    Button10.Visible = true;
+                    Button10.Text = "Hello  " + arr1[0];
+                    Button12.Visible = true;
+                    Button11.Visible = true;
+                    Button7.Visible = false;
+                    Button6.Visible = false;
+                    Button9.Visible = false;
+                    Button13.Visible = true;
+
+
+                }
+                else
+                {
+                    var queryStrings = (Request.QueryString.ToString());
+                    var arrQueryStrings = queryStrings.Split('=');
+                    Label3.Visible = false;
+                    Label4.Visible = false;
+                    Label2.Visible = true;
+                    var arr1 = a.Split('@');
+                    Button10.Visible = true;
+                    Button10.Text = "Hello  " + arr1[0];
+                    Button12.Visible = true;
+                }
+            }
+            else
+            {
+                Label3.Visible = true;
+                Label4.Visible = true;
+                Button10.Visible = false;
+            }
 
         }
 
@@ -49,6 +88,8 @@ namespace WebApplication2
                 {
                     count1 = count1 + 1;
                     Debug.WriteLine("Account already exists");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Account Already EXIST!!')", true);
+
                     break;
                     
                 }
@@ -75,6 +116,8 @@ namespace WebApplication2
                     cmd1.Parameters.AddWithValue("@email", b);
                     cmd1.Parameters.AddWithValue("@password", b2);
                     cmd1.ExecuteNonQuery();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Your Account has been created!!')", true);
+
                 }
                 else
                 {
@@ -86,7 +129,7 @@ namespace WebApplication2
 
         protected void Button3_click(object sender, EventArgs e)
         {
-            String constring = ConfigurationManager.ConnectionStrings["flight"].ConnectionString;
+            String constring = ConfigurationManager.ConnectionStrings["Flight"].ConnectionString;
 
             SqlConnection con = new SqlConnection(constring);
             con.Open();
@@ -96,7 +139,7 @@ namespace WebApplication2
 
             adp.Fill(dt);
 
-            String a = TextBox7.Text;
+            a = TextBox7.Text;
             String a1 = TextBox8.Text;
            
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -106,24 +149,40 @@ namespace WebApplication2
                     count++;
                     if (dt.Rows[i]["password"].ToString()==a1)
                     {
+                        String temp = "taral12@gmail.com";
                         Debug.WriteLine("You have successfully login");
-                        //Label2.Text = a;
-                        Debug.WriteLine(a);
-                        String url = (String.Format("Default_login.aspx?user={0}",a));
-                        
-                        Response.Redirect(url,false);
+                        count3 += 3;
+                        if (a == temp)
+                        {
+                            String ab = (String.Format("Admin.aspx"));
+                            Response.Redirect(ab, false);
+                            Label2.Text = a;
+                            Label3.Visible = false;
+                            Label4.Visible = false;
+                            Label2.Visible = true;
+                            Button7.Text = "Feedbacks";
+                            Button11.Visible = true;
+                            break;
 
 
+                        }
 
-
-
-
+                        String url = (String.Format("Default.aspx?user={0}",a));
+                        Debug.WriteLine("now it is falut");
+                        Response.Redirect(url, false);
+                        Label2.Text = a;
+                        Label3.Visible = false;
+                        Label4.Visible = false;
+                        Label2.Visible = true;
                         break;
+                        
                        
                     }
                     else
                     {
                         Debug.WriteLine("You have entered wrong password");
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You have entered wrong password!!.')", true);
+
                         break;
                     }
                 }
@@ -135,9 +194,10 @@ namespace WebApplication2
 
                 Debug.WriteLine("Account doesn't exist");
             }
-
+            
             if(count2==1)
             {
+                Debug.WriteLine("now it is falut");
                 Label3.Visible = false;
                 Label4.Visible = false;
                 Label2.Visible = true;
@@ -146,6 +206,72 @@ namespace WebApplication2
 
         }
 
-           
-}
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            if(Button10.Visible==true)
+            { 
+            
+            String url = (String.Format("Contact_us.aspx?user={0}", a));
+            Debug.WriteLine("now it is falut");
+            Label2.Text = a;
+            Label3.Visible = false;
+            Label4.Visible = false;
+            Label2.Visible = true;
+            Response.Redirect(url, false);
+            }
+            else
+            {
+                Response.Redirect("Contact_us.aspx");
+            }
+
+        }
+
+        protected void Button10_Click(object sender, EventArgs e)
+        {
+            count3 = 0;
+            Response.Redirect("#");
+            
+        }
+
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+            if(Button10.Visible==true)
+            {
+                String url = (String.Format("Default.aspx?user={0}", a));
+                Response.Redirect(url, false);
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
+            
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            if (Button10.Visible)
+            {
+                String url = (String.Format("Baggage.aspx?user={0}", a));
+                Response.Redirect(url, false);
+            }
+            else
+            {
+                Response.Redirect("Baggage.aspx");
+            }
+
+        }
+
+        protected void Button13_Click(object sender, EventArgs e)
+        {
+            if (Button10.Visible)
+            {
+                String url = (String.Format("Admin.aspx?user={0}", a));
+                Response.Redirect(url, false);
+            }
+            else
+            {
+                Response.Redirect("Admin.aspx");
+            }
+        }
+    }
 }
