@@ -5,6 +5,10 @@
 <html>
 <head runat="server">
     <title></title>
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0)"/>
+<meta http-equiv="Page-Exit" content="blendTrans(Duration=0)"/>
+
+
     <link href="css/bootstrap-theme.css" rel="stylesheet" />
     <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -88,7 +92,7 @@
         <li><a href="#">Special Offers</a></li>
           <li><a href="#">My Booking</a></li>
           <li><a href="#">Baggage</a></li>
-          <li ><a href=url>Contact US</a></li>
+          <li ><a href="Contact_login.aspx">Contact US</a></li>
         
     </ul>
       <ul class="nav navbar-nav navbar-right">
