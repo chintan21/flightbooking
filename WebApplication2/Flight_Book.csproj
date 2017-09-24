@@ -80,9 +80,16 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\1.jpg" />
+    <Content Include="Images\airindia.png" />
     <Content Include="Images\cabin-baggage.png" />
+    <Content Include="Images\cal.png" />
+    <Content Include="Images\calaend.jpg" />
     <Content Include="Images\calander.png" />
+    <Content Include="Images\goair.png" />
     <Content Include="Images\img-sp.png" />
+    <Content Include="Images\indigo.png" />
+    <Content Include="Images\jetairways.png" />
+    <Content Include="Images\spicejet.jpg" />
     <Content Include="Images\udaan_logo.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -97,6 +104,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Passanger_detail.aspx" />
     <Content Include="search.aspx" />
+    <Content Include="Search_test.aspx" />
     <Content Include="Site1.Master" />
     <Content Include="Default.aspx" />
     <Content Include="Site2.Master" />
@@ -104,7 +112,6 @@
     <Content Include="css\bootstrap-theme.min.css.map" />
     <Content Include="css\bootstrap.css.map" />
     <Content Include="css\bootstrap.min.css.map" />
-    <Content Include="WebForm1.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -154,6 +161,13 @@
     <Compile Include="search.aspx.designer.cs">
       <DependentUpon>search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Search_test.aspx.cs">
+      <DependentUpon>Search_test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search_test.aspx.designer.cs">
+      <DependentUpon>Search_test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,13 +188,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

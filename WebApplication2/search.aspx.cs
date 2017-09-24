@@ -15,6 +15,20 @@ namespace WebApplication2
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
+        protected void Page_preLoad(object sender,EventArgs e)
+        {
+            var queryStrings = (Request.QueryString.ToString());
+            var arrQueryStrings = queryStrings.Split('&');
+
+            String src = arrQueryStrings[0];
+            String dest = arrQueryStrings[1];
+            String dt = arrQueryStrings[2];
+            Label2.Text = " " + src + " to " + dest;
+            Label2.Visible = true;
+            Label4.Text = " " + dt ;
+            Label4.Visible = true;
+
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,6 +39,9 @@ namespace WebApplication2
 
                 String src = arrQueryStrings[0];
                 String dest = arrQueryStrings[1];
+                Label2.Text=" "+src + " to " + dest;
+                Label2.Visible = true;
+
                 String constring = ConfigurationManager.ConnectionStrings["flight"].ConnectionString;
 
                 SqlConnection con = new SqlConnection(constring);
