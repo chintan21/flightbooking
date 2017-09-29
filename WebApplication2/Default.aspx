@@ -18,8 +18,6 @@
 
                     <div class="tab-content">
                         <div id="home" class="tab-pane fade in active">
-
-
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
                                     <div class="form-group" style="color: white">
@@ -160,11 +158,7 @@
                                 </div>
                             </div>
 
-
-
                         </div>
-
-                        
 
                         <div id="menu1" class="tab-pane fade">
                              <div class="row">

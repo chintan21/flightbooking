@@ -78,6 +78,7 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="Final.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\airindia.png" />
@@ -103,6 +104,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Passanger_detail.aspx" />
+    <Content Include="payment.aspx" />
     <Content Include="search.aspx" />
     <Content Include="Search_test.aspx" />
     <Content Include="Site1.Master" />
@@ -146,12 +148,26 @@
     <Compile Include="Contact_us.aspx.designer.cs">
       <DependentUpon>Contact_us.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Final.aspx.cs">
+      <DependentUpon>Final.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Final.aspx.designer.cs">
+      <DependentUpon>Final.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Passanger_detail.aspx.cs">
       <DependentUpon>Passanger_detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Passanger_detail.aspx.designer.cs">
       <DependentUpon>Passanger_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="search.aspx.cs">
