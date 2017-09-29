@@ -12,6 +12,18 @@ namespace WebApplication2
             {
                 Calendar1.Visible = false;
             }
+
+            if (Page.PreviousPage != null)
+            {
+                var queryStrings = (Request.QueryString.ToString());
+                var a = queryStrings.Split('&');
+
+                DropDownList7.Items.FindByText("Delhi").Selected = true;
+                DropDownList8.Items.FindByText("Ahmedabad").Selected = true;
+
+
+            }
+
         }
 
         protected void OnewaySearch_Click(object sender, EventArgs e)
@@ -24,7 +36,7 @@ namespace WebApplication2
             if(src!=dest)
             { 
             Debug.WriteLine("in if statement");
-            String url = (String.Format("search.aspx?{0}&{1}&{2}", src, dest,dt));
+            String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}", src, dest,dt,DropDownList3.SelectedValue));
             Response.Redirect(url);
             }
         }

@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <asp:Label ID="Label5" runat="server" Text="Adult Child Class"></asp:Label>
-                                    <asp:Button ID="Button1" runat="server" Text=" + Modify Search" />
+                                    <asp:Button ID="Button1" runat="server" Text=" + Modify Search" OnClick="Button1_Click" />
                                 </div>
                             </div>
 

@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
+
 namespace WebApplication2
 {
     public partial class WebForm5 : System.Web.UI.Page
@@ -23,6 +24,8 @@ namespace WebApplication2
             String src = arrQueryStrings[0];
             String dest = arrQueryStrings[1];
             String dt = arrQueryStrings[2];
+            
+            
             Label2.Text = " " + src + " to " + dest;
             Label2.Visible = true;
             Label4.Text = " " + dt ;
@@ -39,6 +42,9 @@ namespace WebApplication2
 
                 String src = arrQueryStrings[0];
                 String dest = arrQueryStrings[1];
+                String cls1 = arrQueryStrings[3];
+                char cls = cls1.FirstOrDefault();
+
                 Label2.Text=" "+src + " to " + dest;
                 Label2.Visible = true;
 
@@ -57,25 +63,29 @@ namespace WebApplication2
                 DataTable dt6 = new DataTable();
                
 
-                dt4.Columns.Add("fid");
-                dt4.Columns.Add("air_id");
-                dt4.Columns.Add("src_airp");
+                dt4.Columns.Add("Flight_ID");
+                dt4.Columns.Add("Airline");
+                dt4.Columns.Add("Source");
                
-                dt4.Columns.Add("dest_airp");
-                dt4.Columns.Add("dept_time");
-                dt4.Columns.Add("arr_time");
-                
-                dt5.Columns.Add("fid");
-                dt5.Columns.Add("air_id");
-                dt5.Columns.Add("src_airp");
-               
-                dt5.Columns.Add("dest_airp");
-                dt5.Columns.Add("dept_time");
-                dt5.Columns.Add("arr_time");
+                dt4.Columns.Add("Destination");
+                dt4.Columns.Add("Departure");
+                dt4.Columns.Add("Arrival");
+                dt4.Columns.Add("Price");
 
-               
+                dt5.Columns.Add("Flight_ID");
+                dt5.Columns.Add("Airline");
+                dt5.Columns.Add("Source");
 
-               
+                dt5.Columns.Add("Destination");
+                dt5.Columns.Add("Departure");
+                dt5.Columns.Add("Arrival");
+                dt5.Columns.Add("Price");
+
+
+
+
+
+
 
                 SqlDataAdapter adp = new SqlDataAdapter("Select airport from distance where " + src + "<=500  and " + src + " >0", con);
                 adp.Fill(dt6);
@@ -115,7 +125,7 @@ namespace WebApplication2
                 }
 
                 dt.Reset();
-                SqlDataAdapter adp2 = new SqlDataAdapter("select * from flights where src_airp='" + src + "' and dest_airp='" + dest + "' ", con);
+                SqlDataAdapter adp2 = new SqlDataAdapter("select flights.fid as Flight_ID,air_id as Airline,src_airp as Source,dest_airp as Destination,dept_time as Departure,arr_time as Arrival,Price from flights,Seats where src_airp='" + src + "' and dest_airp='" + dest + "' and Seats.fid=flights.fid and Seats.seat_class='"+cls+"' and Seats.Tot_seat > 0 ", con);
                 adp2.Fill(dt);
                 String mid;
                 int count = 0;
@@ -127,9 +137,9 @@ namespace WebApplication2
                    
                         mid = (dt6.Rows[i]["airport"]).ToString();
 
-                        adp.SelectCommand = new SqlCommand("select * from flights where src_airp='" + src + "' and dest_airp='" + mid + "'", con);
+                        adp.SelectCommand = new SqlCommand("select flights.fid as Flight_ID,air_id as Airline,src_airp as Source,dest_airp as Destination,dept_time as Departure,arr_time as Arrival,Price from flights,Seats where src_airp='" + src + "' and dest_airp='" + mid + "' and Seats.fid=flights.fid and Seats.seat_class='" + cls + "' ", con);
                         adp.Fill(dt2);
-                        adp.SelectCommand = new SqlCommand("select * from flights where src_airp='" + mid + "' and dest_airp='" + dest + "'", con);
+                        adp.SelectCommand = new SqlCommand("select flights.fid as Flight_ID,air_id as Airline,src_airp as Source,dest_airp as Destination,dept_time as Departure,arr_time as Arrival,Price from flights,Seats where src_airp='" + mid + "' and dest_airp='" + dest + "' and Seats.fid=flights.fid and Seats.seat_class='" + cls + "' ", con);
                         adp.Fill(dt3);
                     
                         if (dt2.Rows.Count != 0 && dt3.Rows.Count != 0)
@@ -145,8 +155,8 @@ namespace WebApplication2
                         {
                             for (int b = 0; b < a2; b++)
                             {
-                                DateTime time1 = Convert.ToDateTime(dt2.Rows[a]["arr_time"].ToString());
-                                DateTime time2 = Convert.ToDateTime(dt3.Rows[b]["dept_time"].ToString());
+                                DateTime time1 = Convert.ToDateTime(dt2.Rows[a]["Arrival"].ToString());
+                                DateTime time2 = Convert.ToDateTime(dt3.Rows[b]["Departure"].ToString());
 
                                 int result = DateTime.Compare(time1, time2);
 
@@ -154,7 +164,16 @@ namespace WebApplication2
 
                                 if (result < 0)
                                 {
+                                    int a11 = Convert.ToInt32(dt2.Rows[a]["Price"].ToString());
+                                    int  a12 = Convert.ToInt32(dt3.Rows[b]["Price"].ToString());
+
+                                    a11 = Convert.ToInt32((a11 + a12) * 0.6);
+
+                                    dt2.Rows[a]["Price"] = a11;
+                                    dt3.Rows[b]["Price"] =DBNull.Value;
+
                                     dt2.AcceptChanges();
+                                    dt3.AcceptChanges();
 
                                     dt4.ImportRow(dt2.Rows[a]);
 
@@ -176,7 +195,7 @@ namespace WebApplication2
 
                     foreach(DataRow dr in dt4.Rows)
                     {
-                        Debug.WriteLine(dr["fid"]);
+                        
                        dt5.Rows.Add(dr.ItemArray);
                     }
                     
@@ -187,7 +206,10 @@ namespace WebApplication2
                 }
                     Debug.WriteLine("No. of options with 1 stop:{0}", count);
 
-                    GridView1.DataSource = dt;
+               
+
+
+                GridView1.DataSource = dt;
                     GridView1.DataBind();
 
                     GridView2.DataSource = dt5;
@@ -230,6 +252,19 @@ namespace WebApplication2
             Debug.WriteLine(index);
             Response.Redirect("Passanger_detail.aspx");
 
+        }
+
+        protected void Button1_Click(object sender,EventArgs e)
+        {
+            string qs = HttpContext.Current.Request.Url.AbsoluteUri;
+            var a = qs.Split('&');
+            var b = a[0].Split('?');
+
+            String url = (String.Format("Default.aspx?{0}&{1}&{2}", b[1],a[1],a[2]));
+
+            Response.Redirect(url);
+            
+            
         }
 
     }
