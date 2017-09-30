@@ -30,6 +30,8 @@ namespace WebApplication2
             Label2.Visible = true;
             Label4.Text = " " + dt ;
             Label4.Visible = true;
+            Label9.Text = arrQueryStrings[4];
+            Label11.Text = arrQueryStrings[5];
 
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -47,6 +49,8 @@ namespace WebApplication2
 
                 Label2.Text=" "+src + " to " + dest;
                 Label2.Visible = true;
+                Label7.Text = cls1;
+                Label7.Visible = true;
 
                 String constring = ConfigurationManager.ConnectionStrings["flight"].ConnectionString;
 
@@ -241,16 +245,38 @@ namespace WebApplication2
         protected void GridView1_SelectedIndexChanged(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
-            Debug.WriteLine(index);
-            Response.Redirect("Passanger_detail.aspx");
+            String id = GridView1.Rows[index].Cells[1].Text;
+            String src = GridView1.Rows[index].Cells[3].Text;
+            String dest = GridView1.Rows[index].Cells[4].Text;
+           
+            String date = Label4.Text;
+            String adt = Label9.Text;
+            String cld = Label11.Text;
+            String cls = Label7.Text;
+            String inter = "false";
+            date = (date.Split(' '))[1];
+            String url = (String.Format("Passanger_detail.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}", HttpUtility.UrlEncode(id), HttpUtility.UrlEncode(src), HttpUtility.UrlEncode(dest),  HttpUtility.UrlEncode(date), HttpUtility.UrlEncode(adt), HttpUtility.UrlEncode(cld),HttpUtility.UrlEncode(cls),HttpUtility.UrlEncode(inter)));
+            Response.Redirect(url);
 
         }
 
         protected void GridView2_SelectedIndexChanged(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
-            Debug.WriteLine(index);
-            Response.Redirect("Passanger_detail.aspx");
+            String id = GridView2.Rows[index].Cells[1].Text;
+            String id1 = GridView2.Rows[index + 1].Cells[1].Text;
+            String src = GridView2.Rows[index].Cells[3].Text;
+            String mid = GridView2.Rows[index].Cells[4].Text;
+            String dest = GridView2.Rows[index + 1].Cells[4].Text;
+            String date = Label4.Text;
+            String adt = Label9.Text;
+            String cld = Label11.Text;
+            String cls = Label7.Text;
+            date = (date.Split(' '))[1];
+
+            String inter = "true";
+            String url = (String.Format("Passanger_detail.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", HttpUtility.UrlEncode(id), HttpUtility.UrlEncode(src), HttpUtility.UrlEncode(dest), HttpUtility.UrlEncode(date), HttpUtility.UrlEncode(adt), HttpUtility.UrlEncode(cld), HttpUtility.UrlEncode(cls), HttpUtility.UrlEncode(inter), HttpUtility.UrlEncode(id1),HttpUtility.UrlEncode(mid)));
+            Response.Redirect(url);
 
         }
 
@@ -260,13 +286,17 @@ namespace WebApplication2
             var a = qs.Split('&');
             var b = a[0].Split('?');
 
-            String url = (String.Format("Default.aspx?{0}&{1}&{2}", b[1],a[1],a[2]));
+            String url = (String.Format("Default.aspx?{0}&{1}&{2}&{3}&{4}", b[1],a[1],a[2],a[3],a[4]));
 
             Response.Redirect(url);
             
             
         }
 
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            
+        }
     }
 
     }

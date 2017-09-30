@@ -26,23 +26,59 @@
                 <div class="panel-body">
                     <div class="col-xs-offset-1 col-md-10">
                         <div class="well">
-                            <h3>Journey Details</h3>
                             <div class="row">
-                                <div class="col-sm-4">
+                                 <div class="col-sm-2">
                                     <asp:Label ID="Label1" runat="server" Text="One Way"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label2" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                <div class="col-sm-2">
+                                    <asp:Label ID="Label3" runat="server" Text="Flight ID"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label4" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                               
+                                 <div class="col-sm-2">
+                                    <asp:Label ID="Label9" runat="server" Text="Departure Time"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label10" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                 <div class="col-sm-2">
+                                    <asp:Label ID="Label11" runat="server" Text="Arrival Time"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label12" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                     <div class="col-sm-2">
+                                    <asp:Label ID="Label13" runat="server" Text="Price"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label14" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                     <div class="col-sm-2">
+                                    <asp:Label ID="Label15" runat="server" Text="Date"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label16" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                 <div class="col-sm-2">
+                                    <asp:Label ID="Label5" runat="server" Text="Adults"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label6" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                 <div class="col-sm-2">
+                                    <asp:Label ID="Label7" runat="server" Text="Child"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label8" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                 <div class="col-sm-2">
+                                    <asp:Label ID="Label17" runat="server" Text="Available seats"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label18" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                     <div class="col-sm-2">
+                                    <asp:Label ID="Label19" runat="server" Text="Free Luggage(Total)"></asp:Label>
+                                    
+                                    <h3><asp:Label ID="Label20" runat="server" Text=""></asp:Label></h3>
+                                </div>
 
-                                    <h3>
-                                        <asp:Label ID="Label2" runat="server" Text=""></asp:Label></h3>
-                                </div>
-                                <div class="col-sm-4">
-                                    <asp:Label ID="Label3" runat="server" Text="Departure"></asp:Label>
-                                    <h3>
-                                        <asp:Label ID="Label4" runat="server" Text=""></asp:Label></h3>
-                                </div>
-                                <div class="col-sm-4">
-                                    <asp:Label ID="Label5" runat="server" Text="Adult Child Class"></asp:Label>
-                                    <asp:Button ID="Button1" runat="server" Text=" + Modify Search" />
-                                </div>
                             </div>
 
                         </div>
@@ -295,7 +331,7 @@
                                         </tr>
                                        
                                            <tr>
-                                            <td>1</td>
+                                            <td>2</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox21" runat="server" CssClass="form-control"></asp:TextBox>
 

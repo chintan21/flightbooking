@@ -61,7 +61,7 @@
                                             <div class="col-xs-6">
                                                 <div class="row">
                                                     <div class="col-xs-10">
-                                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                                        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                                     </div>
                                                     <div class="col-xs-1">
                                                         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/calaend.jpg" height="30px" Width="30px" OnClick="ImageButton1_Click"/>
@@ -105,8 +105,7 @@
                                                         <asp:ListItem>4</asp:ListItem>
                                                         <asp:ListItem>5</asp:ListItem>
                                                         <asp:ListItem>6</asp:ListItem>
-                                                        <asp:ListItem>7</asp:ListItem>
-                                                        <asp:ListItem>8</asp:ListItem>
+
                                                     
                                                     </asp:DropDownList>
                                                         
@@ -118,8 +117,7 @@
                                                         <asp:ListItem>0</asp:ListItem>
                                                         <asp:ListItem>1</asp:ListItem>
                                                         <asp:ListItem>2</asp:ListItem>
-                                                        <asp:ListItem>3</asp:ListItem>
-                                                        <asp:ListItem>4</asp:ListItem>
+                                                        
                                                         
                                                     </asp:DropDownList>
                                                     

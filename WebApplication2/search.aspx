@@ -27,17 +27,28 @@
                     <div class="col-md-12">
                         <div class="well">
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <asp:Label ID="Label1" runat="server" Text="One Way"></asp:Label>
                                     
                                     <h3><asp:Label ID="Label2" runat="server" Text=""></asp:Label></h3>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2">
                                     <asp:Label ID="Label3" runat="server" Text="Departure"></asp:Label>
                                     <h3><asp:Label ID="Label4" runat="server" Text=""></asp:Label></h3>
                                 </div>
-                                <div class="col-sm-4">
-                                    <asp:Label ID="Label5" runat="server" Text="Adult Child Class"></asp:Label>
+                                <div class="col-sm-2">
+                                    <asp:Label ID="Label5" runat="server" Text="Class"></asp:Label>
+                                   <h3> <asp:Label ID="Label7" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                <div class="col-sm-2">
+                                    <asp:Label ID="Label8" runat="server" Text="Adluts"></asp:Label>
+                                   <h3> <asp:Label ID="Label9" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                 <div class="col-sm-2">
+                                    <asp:Label ID="Label10" runat="server" Text="Child"></asp:Label>
+                                   <h3> <asp:Label ID="Label11" runat="server" Text=""></asp:Label></h3>
+                                </div>
+                                <div class="col-sm-2">
                                     <asp:Button ID="Button1" runat="server" Text=" + Modify Search" OnClick="Button1_Click" />
                                 </div>
                             </div>
@@ -140,7 +151,7 @@
     <h2><asp:Label ID="Label55" runat="server"  Text="Direct Flights:" CssClass="label label-default"></asp:Label></h2>
     <br />
 
-    <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="112px" Width="754px" CssClass="table table-striped table-bordered table-condensed" OnRowCommand="GridView1_SelectedIndexChanged">
+    <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="112px" Width="754px" CssClass="table table-striped table-bordered table-condensed" OnRowCommand="GridView1_SelectedIndexChanged" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
         <Columns>
             <asp:ButtonField Text="Book Now" />
         </Columns>

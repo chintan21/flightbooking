@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-
+using System.Web.UI;
 
 namespace WebApplication2
 {
@@ -18,10 +18,8 @@ namespace WebApplication2
                 var queryStrings = (Request.QueryString.ToString());
                 var a = queryStrings.Split('&');
 
-                DropDownList7.Items.FindByText("Delhi").Selected = true;
-                DropDownList8.Items.FindByText("Ahmedabad").Selected = true;
-
-
+                DropDownList7.ClearSelection();
+                DropDownList8.ClearSelection();
             }
 
         }
@@ -33,11 +31,20 @@ namespace WebApplication2
             String dest = DropDownList8.SelectedValue;
             String dt = TextBox1.Text;
 
-            if(src!=dest)
-            { 
-            Debug.WriteLine("in if statement");
-            String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}", src, dest,dt,DropDownList3.SelectedValue));
-            Response.Redirect(url);
+            if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)) )
+            {
+
+                if (src != dest)
+                {
+                    Debug.WriteLine("in if statement");
+                    String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue,DropDownList1.SelectedValue,DropDownList2.SelectedValue));
+                    Response.Redirect(url);
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
+
             }
         }
 
