@@ -23,7 +23,7 @@ namespace WebApplication2
         int ep2;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
 
             var queryStrings = (Request.QueryString.ToString());
             var a = queryStrings.Split('&');
@@ -128,6 +128,7 @@ namespace WebApplication2
 
             if (adt < 6)
             {
+                a6.Visible = false;
                 TextBox16.Enabled = false;
                 TextBox17.Enabled = false;
                 TextBox18.Enabled = false;
@@ -136,6 +137,7 @@ namespace WebApplication2
 
                 if (adt < 5)
                 {
+                    a5.Visible = false;
                     TextBox13.Enabled = false;
                     TextBox14.Enabled = false;
                     TextBox15.Enabled = false;
@@ -144,6 +146,7 @@ namespace WebApplication2
 
                     if (adt < 4)
                     {
+                        a4.Visible = false;
                         TextBox10.Enabled = false;
                         TextBox11.Enabled = false;
                         TextBox12.Enabled = false;
@@ -152,6 +155,7 @@ namespace WebApplication2
 
                         if (adt < 3)
                         {
+                            a3.Visible = false;
                             TextBox7.Enabled = false;
                             TextBox8.Enabled = false;
                             TextBox9.Enabled = false;
@@ -160,6 +164,7 @@ namespace WebApplication2
 
                             if (adt < 2)
                             {
+                                a2.Visible = false;
                                 TextBox4.Enabled = false;
                                 TextBox5.Enabled = false;
                                 TextBox6.Enabled = false;
@@ -175,12 +180,14 @@ namespace WebApplication2
 
             if (cld < 2)
             {
+                c2.Visible = false;
                 TextBox21.Enabled = false;
                 TextBox22.Enabled = false;
                 DropDownList14.Enabled = false;
 
                 if (cld < 1)
                 {
+                    tchild.Visible = false;
                     TextBox19.Enabled = false;
                     TextBox20.Enabled = false;
                     DropDownList13.Enabled = false;

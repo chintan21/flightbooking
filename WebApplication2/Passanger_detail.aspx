@@ -97,7 +97,7 @@
 
                         <div class="well">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="tadult" runat="server">
 
                                     <caption>Passenger Details</caption>
 
@@ -113,7 +113,7 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr>
+                                        <tr id="a1" runat="server">
                                             <td>1</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
@@ -143,7 +143,7 @@
                                                 <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr id="a2" runat="server">
                                             <td>2</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
@@ -174,7 +174,7 @@
                                             </td>
                                         </tr>
 
-                                        <tr>
+                                        <tr id="a3" runat="server">
                                             <td>3</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
@@ -205,7 +205,7 @@
                                             </td>
                                         </tr>
 
-                                        <tr>
+                                        <tr id="a4" runat="server">
                                             <td>4</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox10" runat="server" CssClass="form-control"></asp:TextBox>
@@ -236,7 +236,7 @@
                                             </td>
                                         </tr>
 
-                                        <tr>
+                                        <tr id="a5" runat="server">
                                             <td>5</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox13" runat="server" CssClass="form-control"></asp:TextBox>
@@ -268,7 +268,7 @@
                                         </tr>
 
 
-                                        <tr>
+                                        <tr id="a6" runat="server">
                                             <td>6</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox16" runat="server" CssClass="form-control"></asp:TextBox>
@@ -308,7 +308,7 @@
 
                         <div class="well">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="tchild" runat="server">
 
                                     <caption>Children Below 5 Years</caption>
 
@@ -322,8 +322,9 @@
                                         </tr>
                                     </thead>
 
+
                                     <tbody>
-                                        <tr>
+                                        <tr id="c1" runat="server">
                                             <td>1</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox19" runat="server" CssClass="form-control"></asp:TextBox>
@@ -342,7 +343,7 @@
                                             </td>
                                         </tr>
 
-                                        <tr>
+                                        <tr id="c2" runat="server">
                                             <td>2</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox21" runat="server" CssClass="form-control"></asp:TextBox>
@@ -367,53 +368,55 @@
                                 </table>
                             </div>
                         </div>
-                        
+
                         <div class="well">
 
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <caption>Extra luggage</caption>
-                                        <tr>
-                                            <th>Price (per KG)</th>
-                                            <th>Maximum Extra luggage</th>
-                                            <th>Enter required luggage</th>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <asp:Label ID="Label21" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Label22" runat="server"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="TextBox24"
-                                                    runat="server"
-                                                    CssClass="form-control"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                    </table>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <caption>Extra luggage</caption>
+                                    <tr>
+                                        <th>Price (per KG)</th>
+                                        <th>Maximum Extra luggage</th>
+                                        <th>Enter required luggage</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="Label21" runat="server"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label22" runat="server"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="TextBox24"
+                                                runat="server"
+                                                CssClass="form-control"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                </table>
 
 
 
 
-                                </div>
                             </div>
-                       
+                        </div>
+
                         <div class="well">
-                            
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <caption><h4>Contact Detials</h4></caption>
-                                        
-                                        <tr>
-                                            <td>
-                                                <asp:TextBox ID="TextBox23" runat="server" CssClass="form-control"></asp:TextBox>
-                                            </td>
-                                            <td>
-                                                <p>Your Mobile number will be used only for sending flight related communication.</p>
-                                            </td>
-                                     </table>
-                           
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <caption>
+                                        <h4>Contact Detials</h4>
+                                    </caption>
+
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="TextBox23" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <p>Your Mobile number will be used only for sending flight related communication.</p>
+                                        </td>
+                                </table>
+
                                 <br />
                                 <br />
 

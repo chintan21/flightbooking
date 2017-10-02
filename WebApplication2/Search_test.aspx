@@ -108,6 +108,71 @@
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" SelectCommand="SELECT * FROM [flights]"></asp:SqlDataSource>
                                     </div>
+
+
+                                  <div class="row">
+                                      <div class="table-responsive">
+                                <table class="table">
+
+                                    <caption>Children Below 5 Years</caption>
+
+                                    <thead style="text-align: center">
+                                        <tr>
+                                            <th>S no.</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
+
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        <tr id="Tr5" runat="server">
+                                            <td>5</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                        </tr>
+                                       <tr id="Tr1" runat="server">
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                        </tr>
+                                           
+                                           <tr id="Tr4" runat="server">
+                                            <td>4</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                        </tr>
+                                    
+                                    
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+
+                                      <div class="row">
+                                          <asp:Table ID="Table1" runat="server" Height="73px" Width="254px" CssClass="table">
+                                              
+                                              <asp:TableRow runat="server" ID="TableRow1">
+                                                  <asp:TableCell>1</asp:TableCell>
+                                                  <asp:TableCell>Azure</asp:TableCell>
+                                              </asp:TableRow>
+                                              <asp:TableRow runat="server" ID="TableRow2">
+                                                  <asp:TableCell>2</asp:TableCell>
+                                                  <asp:TableCell>Azure</asp:TableCell>
+                                              </asp:TableRow>
+                                          <asp:TableRow runat="server" ID="TableRow3" >
+                                                  <asp:TableCell>3</asp:TableCell>
+                                                  <asp:TableCell>Azure</asp:TableCell>
+                                              </asp:TableRow>
+                                          </asp:Table>
+                                      </div>
+
                                 </div>
                             </div>
 
