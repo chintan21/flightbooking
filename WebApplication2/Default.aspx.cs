@@ -61,7 +61,7 @@ namespace WebApplication2
             String dest = DropDownList10.SelectedValue;
             if (src != dest) { 
             Debug.WriteLine("in if statement");
-            String url = (String.Format("search.aspx?{0}&{1}", src, dest));
+            String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}", src, dest));
             Response.Redirect(url);
             }
         }
@@ -95,7 +95,7 @@ namespace WebApplication2
                 Calendar2.Visible = true;
             }
         }
-
+        
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
         {
             TextBox2.Text = Calendar2.SelectedDate.ToShortDateString();
