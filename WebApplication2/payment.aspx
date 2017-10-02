@@ -264,7 +264,7 @@
         </div>
         <div class="col-md-4">
             <div class="well">
-                <h2>BOOKING SUMMARY </h2>
+                <h2>BOOKING SUMMAR </h2>
             </div>
         </div>
 </asp:Content>
