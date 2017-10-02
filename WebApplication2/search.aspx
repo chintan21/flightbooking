@@ -74,7 +74,7 @@
                                                 <asp:Label ID="Label14" runat="server" Text="   AirIndia"></asp:Label>
                                                         </div>
                                                     <div class="col-xs-1">
-                                                        <asp:CheckBox ID="CheckBox5" runat="server" TextAlign="Left" />
+                                                        <asp:CheckBox ID="CheckBox5" runat="server" TextAlign="Left" AutoPostBack="True" OnCheckedChanged="CheckBox5_CheckedChanged" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@
                                                 <asp:Label ID="Label6" runat="server" Text="   Indigo"></asp:Label>
                                                         </div>
                                                     <div class="col-xs-1">
-                                                        <asp:CheckBox ID="CheckBox1" runat="server" TextAlign="Left" />
+                                                        <asp:CheckBox ID="CheckBox1" runat="server" TextAlign="Left" AutoPostBack="True" OnCheckedChanged="CheckBox5_CheckedChanged" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,7 +101,7 @@
                                                         <asp:Label ID="Label15" runat="server" Text="   JetAirways"></asp:Label>
                                                     </div>
                                                     <div class="col-xs-1">
-                                                        <asp:CheckBox ID="CheckBox6" runat="server" TextAlign="Left" />
+                                                        <asp:CheckBox ID="CheckBox6" runat="server" TextAlign="Left" AutoPostBack="True" OnCheckedChanged="CheckBox5_CheckedChanged" />
                                                     </div>
                                                 </div>
                                                 
@@ -117,7 +117,7 @@
                                                     </div>
                                                     <div class="col-xs-1">
                                                 
-                                                <asp:CheckBox ID="CheckBox7" runat="server" TextAlign="Left" />
+                                                <asp:CheckBox ID="CheckBox7" runat="server" TextAlign="Left" AutoPostBack="True" OnCheckedChanged="CheckBox5_CheckedChanged"/>
                                                     </div>
                                                 </div>
                                                 
@@ -132,7 +132,7 @@
                                                 
                                                     </div>
                                                     <div class="col-xs-1">
-                                                        <asp:CheckBox ID="CheckBox8" runat="server" TextAlign="Left" />
+                                                        <asp:CheckBox ID="CheckBox8" runat="server" TextAlign="Left" AutoPostBack="True" OnCheckedChanged="CheckBox5_CheckedChanged" />
                                                     </div>
                                                 </div>
                                                 

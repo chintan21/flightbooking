@@ -31,23 +31,30 @@ namespace WebApplication2
             String dest = DropDownList8.SelectedValue;
             String dt = TextBox1.Text;
 
-            if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)) )
-            {
+            
 
-                if (src != dest)
+           
+            
+
+
+
+                if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)))
                 {
-                    Debug.WriteLine("in if statement");
-                    String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue,DropDownList1.SelectedValue,DropDownList2.SelectedValue));
-                    Response.Redirect(url);
+
+                    if (src != dest)
+                    {
+                        Debug.WriteLine("in if statement");
+                        String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue));
+                        Response.Redirect(url);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
+
                 }
             }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
-
-            }
-        }
-
+        
         protected void Button2_Click(object sender, EventArgs e)
         {
             String src = DropDownList9.SelectedValue;

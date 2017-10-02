@@ -27,7 +27,7 @@ namespace WebApplication2
                     Label3.Visible = false;
                     Label4.Visible = false;
                     Label2.Visible = true;
-                    
+                    Session["user"] = a;
                     Button10.Visible = true;
                     Button10.Text = "Hello  " +a;
                     Button12.Visible = true;
@@ -49,11 +49,13 @@ namespace WebApplication2
                     
                     Button10.Visible = true;
                     Button10.Text = "Hello, " +a;
+                    Session["user"] = a;
                     Button12.Visible = true;
                 }
             }
             else
             {
+                Session["user"] = null;
                 Label3.Visible = true;
                 Label4.Visible = true;
                 Button10.Visible = false;

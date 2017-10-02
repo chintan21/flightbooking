@@ -36,6 +36,7 @@ namespace WebApplication2
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Debug.WriteLine(Session["user"]);
 
             if (Request.QueryString.Count > 0)
             {
@@ -297,6 +298,113 @@ namespace WebApplication2
         {
             
         }
+
+        protected void CheckBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            int a = GridView1.Rows.Count;
+            int a1 = GridView2.Rows.Count;
+            String id5 = "AI";
+            String id1 = "6E";
+            String id6 = "9W";
+            String id7 = "SG";
+            String id8 = "G8";
+
+            Boolean c5 = CheckBox5.Checked;
+            Boolean c1 = CheckBox1.Checked;
+            Boolean c6 = CheckBox6.Checked;
+            Boolean c7 = CheckBox7.Checked;
+            Boolean c8 = CheckBox8.Checked;
+
+            for(int i=0;i<a;i++)
+            {
+                String b = GridView1.Rows[i].Cells[2].Text;
+
+                if(b==id5 && c5==false)
+                {
+                    GridView1.Rows[i].Visible = false;
+                }
+
+                if (b == id1 && c1 == false)
+                {
+                    GridView1.Rows[i].Visible = false;
+                }
+
+                if (b == id6 && c6 == false)
+                {
+                    GridView1.Rows[i].Visible = false;
+                }
+
+                if (b == id7 && c7 == false)
+                {
+                    GridView1.Rows[i].Visible = false;
+                }
+
+                if (b == id8 && c8 == false)
+                {
+                    GridView1.Rows[i].Visible = false;
+                }
+
+                if(c5==false && c1==false && c6==false && c7==false && c8==false)
+                {
+                    GridView1.Rows[i].Visible = true;
+                }
+            }
+
+            for(int i=0;i<a1;i++)
+            {
+                GridView2.Rows[i].Visible = false;
+            }
+
+            for (int i = 0; i < a1; i=i+2)
+            {
+                String b = GridView2.Rows[i].Cells[2].Text;
+                String b1 = GridView2.Rows[i+1].Cells[2].Text;
+
+                if ((b == id5 && c5 == true) || (b1 == id5 && c5 == true))
+                {
+                    GridView2.Rows[i].Visible = true;
+                    GridView2.Rows[i + 1].Visible = true; ;
+                }
+
+                if ((b == id1 && c1 == true) || (b1 == id1 && c1 == true))
+                {
+                    GridView2.Rows[i].Visible = true;
+                    GridView2.Rows[i+1].Visible = true;
+
+                }
+
+                if ((b == id6 && c6 == true) || (b1 == id6 && c6 == true))
+                {
+                    GridView2.Rows[i].Visible = true;
+                    GridView2.Rows[i+1].Visible = true;
+                }
+
+                if ((b == id7 && c7 == true) || (b1 == id7 && c7 == true))
+                {
+                    GridView2.Rows[i].Visible = true;
+                    GridView2.Rows[i+1].Visible = true;
+                }
+
+                if ((b == id8 && c8 == true) || (b1 == id8 && c8 == true))
+                {
+                    GridView2.Rows[i].Visible = true;
+                    GridView2.Rows[i+1].Visible = true;
+                }
+
+                if (c5 == false && c1 == false && c6 == false && c7 == false && c8 == false)
+                {
+                    GridView2.Rows[i].Visible = true;
+                    GridView2.Rows[i+1].Visible = true;
+                }
+            }
+
+
+
+
+        }
+
+
     }
 
     }

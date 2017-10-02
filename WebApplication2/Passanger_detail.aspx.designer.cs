@@ -526,6 +526,24 @@ namespace WebApplication2 {
         protected global::System.Web.UI.WebControls.TextBox TextBox23;
         
         /// <summary>
+        /// example control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BotDetect.Web.UI.WebFormsCaptcha example;
+        
+        /// <summary>
+        /// txtCaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCaptcha;
+        
+        /// <summary>
         /// Button2 control.
         /// </summary>
         /// <remarks>

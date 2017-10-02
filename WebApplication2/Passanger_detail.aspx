@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Passanger_detail.aspx.cs" Inherits="WebApplication2.Passanger_detail" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Passanger_detail.aspx.cs" Inherits="WebApplication2.Passanger_detail"  %>
+<%@ Register Assembly="BotDetect" Namespace="BotDetect.Web.UI" TagPrefix="BotDetect" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
@@ -371,10 +373,29 @@
                                 <div class="col-sm-6">
                                     <p>Your Mobile number will be used only for sending flight related communication.</p>
                                 </div>
+                                <br />
+                                 <br />
+
+                                 <h4>Captcha</h4>
+
+                                 <div class="col-sm-6">
+                                       <div class="col-xs-8">
+                                 <br />
+                                 <br />
+                                          <BotDetect:WebFormsCaptcha ID="example" runat="server" />
+                                 <asp:textbox ID="txtCaptcha" runat="server" CssClass="form-control"></asp:textbox>
+                                         </div>
+                                     
                                 
+                                  
                             </div>
 
                         </div>
+
+                     <br />
+                            <br />
+
+                      
                         <asp:Button ID="Button2" runat="server" Text="Make Payment" CssClass="btn btn-danger btn-lg" OnClick="Button2_Click" />
                        
                     </div>

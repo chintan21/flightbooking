@@ -2,5 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <asp:Label ID="Label1" runat="server" Text="Your ticket has booked..!"></asp:Label>
-
+    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+   
 </asp:Content>
