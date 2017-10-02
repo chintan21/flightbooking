@@ -17,6 +17,10 @@ namespace WebApplication2
         Boolean inter;
         int adt;
         int cld;
+        int e1;
+        int e2;
+        int ep1;
+        int ep2;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -63,9 +67,12 @@ namespace WebApplication2
                 Label10.Text = dt2.Rows[0]["dept_time"].ToString();
                 Label12.Text = dt2.Rows[0]["arr_time"].ToString();
                 dt2.Reset();
-                adp1.SelectCommand = new SqlCommand("select price from Seats where fid='" + id + "' and seat_class='" + cls.FirstOrDefault() + "'", con);
+                adp1.SelectCommand = new SqlCommand("select price,e_lug,e_lug_price from Seats where fid='" + id + "' and seat_class='" + cls.FirstOrDefault() + "'", con);
                 adp1.Fill(dt2);
+
                 int prc = Convert.ToInt32(dt2.Rows[0]["price"].ToString());
+                e1 = Convert.ToInt32(dt2.Rows[0]["e_lug"].ToString());
+                ep1 = Convert.ToInt32(dt2.Rows[0]["e_lug_price"].ToString());
                 Label14.Text = Convert.ToString(prc * adt);
                 dt2.Reset();
             }
@@ -85,16 +92,39 @@ namespace WebApplication2
                 adp1.Fill(dt2);
                 Label12.Text = dt2.Rows[0]["arr_time"].ToString();
                 dt2.Reset();
-                adp1.SelectCommand = new SqlCommand("select price from Seats where fid='" + id + "' and seat_class='" + cls.FirstOrDefault() + "'", con);
+                adp1.SelectCommand = new SqlCommand("select price,e_lug,e_lug_price from Seats where fid='" + id + "' and seat_class='" + cls.FirstOrDefault() + "'", con);
                 adp1.Fill(dt2);
-                adp1.SelectCommand = new SqlCommand("select price from Seats where fid='" + id1 + "' and seat_class='" + cls.FirstOrDefault() + "'", con);
+                adp1.SelectCommand = new SqlCommand("select price,e_lug,e_lug_price from Seats where fid='" + id1 + "' and seat_class='" + cls.FirstOrDefault() + "'", con);
                 adp1.Fill(dt3);
                 int prc = Convert.ToInt32(((Convert.ToInt32(dt2.Rows[0]["price"].ToString()) + (Convert.ToInt32(dt3.Rows[0]["price"].ToString())))) * 0.6);
+                e1 = Convert.ToInt32(dt2.Rows[0]["e_lug"].ToString());
+                e2 = Convert.ToInt32(dt3.Rows[0]["e_lug"].ToString());
+                ep1 = Convert.ToInt32(dt2.Rows[0]["e_lug_price"].ToString());
+                ep2 = Convert.ToInt32(dt3.Rows[0]["e_lug_price"].ToString());
                 Label14.Text = Convert.ToString(prc * adt);
                 dt2.Reset();
                 dt3.Reset();
             }
+            if (inter == false)
+            {
+                Label21.Text = Convert.ToString(ep1);
+                Label22.Text = Convert.ToString(e1 * adt) + " kg";
 
+            }
+            else
+            {
+                if (e1 <= e2)
+                {
+                    Label22.Text = Convert.ToString(e1 * adt) + " kg";
+
+                }
+                else
+                {
+                    Label22.Text = Convert.ToString(e2 * adt) + " kg";
+                }
+                Label21.Text = Convert.ToString((ep1 + ep2) * 0.6);
+
+            }
 
             if (adt < 6)
             {
@@ -372,7 +402,7 @@ namespace WebApplication2
             }
 
             Debug.WriteLine(Session["user"]);
-
+            
 
         }
 
@@ -380,7 +410,7 @@ namespace WebApplication2
 
 
 
-    protected void Button2_Click(object sender, EventArgs e)
+         protected void Button2_Click(object sender, EventArgs e)
     {
 
 
@@ -515,5 +545,12 @@ namespace WebApplication2
              
 
         }
+
+       protected void TextBox24_TextChanged(object sender, EventArgs e)
+       {
+           Session["e_luggage"] = TextBox24.Text;
+       }
+
+       
     }
 }
