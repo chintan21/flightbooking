@@ -8,7 +8,7 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 Calendar1.Visible = false;
             }
@@ -26,35 +26,35 @@ namespace WebApplication2
 
         protected void OnewaySearch_Click(object sender, EventArgs e)
         {
-            
+
             String src = DropDownList7.SelectedValue;
             String dest = DropDownList8.SelectedValue;
             String dt = TextBox1.Text;
 
-            
-
-           
-            
 
 
 
-                if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)))
+
+
+
+
+            if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)))
+            {
+
+                if (src != dest)
                 {
-
-                    if (src != dest)
-                    {
-                        Debug.WriteLine("in if statement");
-                        String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue));
-                        Response.Redirect(url);
-                    }
-                }
-                else
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
-
+                    Debug.WriteLine("in if statement");
+                    String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue));
+                    Response.Redirect(url);
                 }
             }
-        
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
+
+            }
+        }
+    
         protected void Button2_Click(object sender, EventArgs e)
         {
             String src = DropDownList9.SelectedValue;
@@ -82,6 +82,41 @@ namespace WebApplication2
         {
             TextBox1.Text = Calendar1.SelectedDate.ToShortDateString();
             Calendar1.Visible = false;
+        }
+
+        protected void ImageButton2_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
+            if (Calendar2.Visible)
+            {
+                Calendar2.Visible = false;
+            }
+            else
+            {
+                Calendar2.Visible = true;
+            }
+        }
+
+        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
+        {
+            TextBox2.Text = Calendar2.SelectedDate.ToShortDateString();
+            Calendar2.Visible = false;
+        }
+        protected void ImageButton3_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
+            if (Calendar3.Visible)
+            {
+                Calendar3.Visible = false;
+            }
+            else
+            {
+                Calendar3.Visible = true;
+            }
+        }
+
+        protected void Calendar3_SelectionChanged(object sender, EventArgs e)
+        {
+            TextBox4.Text = Calendar3.SelectedDate.ToShortDateString();
+            Calendar3.Visible = false;
         }
     }
 }

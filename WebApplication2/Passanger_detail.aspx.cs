@@ -528,10 +528,11 @@ namespace WebApplication2
 
             Session["temp_adt"] = dt;
             Session["temp_cld"] = dt1;
+            Session["e_luggage"] = TextBox24.Text;
+            Session["e_lug_price"] = Label21.Text;
 
-           
 
-             bool isHuman = example.Validate(txtCaptcha.Text);
+            bool isHuman = example.Validate(txtCaptcha.Text);
              txtCaptcha.Text = null;
              if (!isHuman)
              {
@@ -540,16 +541,14 @@ namespace WebApplication2
              }
              else
              {
-                 Response.Redirect("payment.aspx");
+                String url = (String.Format("Payment.aspx?{0}", Label2.Text));
+                Response.Redirect(url);
              }
              
 
         }
 
-       protected void TextBox24_TextChanged(object sender, EventArgs e)
-       {
-           Session["e_luggage"] = TextBox24.Text;
-       }
+       
 
        
     }

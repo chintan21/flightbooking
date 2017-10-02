@@ -19,6 +19,7 @@ namespace WebApplication2
             GridView1.DataBind();
 
             Debug.WriteLine(Session["user"]);
+            Debug.WriteLine(Session["e_luggage"]);
 
           
         }

@@ -264,7 +264,10 @@
         </div>
         <div class="col-md-4">
             <div class="well">
-                <h2>BOOKING SUMMAR </h2>
+                <h1><asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h1>
+                <h3><asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></h3>
+                <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-bordered table-condensed"></asp:GridView>
+
             </div>
         </div>
 </asp:Content>

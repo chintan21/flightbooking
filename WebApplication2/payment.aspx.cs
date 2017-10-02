@@ -12,7 +12,13 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var queryStrings = (Request.QueryString.ToString());
+            var a = queryStrings.Split('?');
+            Label9.Text = HttpUtility.UrlDecode(a[0]);
             
+
+            GridView1.DataSource= (DataTable)Session["temp_adt"];
+            GridView1.DataBind();
 
         }
 
