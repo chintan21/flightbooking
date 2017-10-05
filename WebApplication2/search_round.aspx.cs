@@ -167,10 +167,10 @@ namespace WebApplication2
 
                                 a11 = Convert.ToInt32((a11 + a12) * 0.6);
 
-                                dt2.Rows[a]["Price"] = a11;
+                                dt7.Rows[a]["Price"] = a11;
                                 dt3.Rows[b]["Price"] = DBNull.Value;
 
-                                dt2.AcceptChanges();
+                                dt7.AcceptChanges();
                                 dt3.AcceptChanges();
 
                                 dt4.ImportRow(dt7.Rows[a]);
@@ -305,10 +305,10 @@ namespace WebApplication2
 
                                 a11 = Convert.ToInt32((a11 + a12) * 0.6);
 
-                                dt2.Rows[a]["Price"] = a11;
+                                dt7.Rows[a]["Price"] = a11;
                                 dt3.Rows[b]["Price"] = DBNull.Value;
 
-                                dt2.AcceptChanges();
+                                dt7.AcceptChanges();
                                 dt3.AcceptChanges();
 
                                 dt4.ImportRow(dt7.Rows[a]);
@@ -393,7 +393,7 @@ namespace WebApplication2
 
 
 
-int index,index1;
+static int index,index1;
 
         protected void GridView1_SelectedIndexChanged(object sender, GridViewCommandEventArgs e)
         {
@@ -404,6 +404,7 @@ int index,index1;
                 GridView1.Rows[index].BackColor = Color.Red;
                 GridView2.Enabled = true;
 
+            Debug.WriteLine(index);
 
            if (index >= k2)
             {
@@ -415,17 +416,68 @@ int index,index1;
            
         }
 
-        protected void GridView2_SelectedIndexChanged(object sender, GridViewCommandEventArgs e)
+        protected void GridView2_SelectedIndexChanged(object sender, GridViewCommandEventArgs e1)
         {
-            index1 = Convert.ToInt32(e.CommandArgument);
-            GridView2.Rows[index].BackColor = Color.Red;
+            index1 = Convert.ToInt32(e1.CommandArgument);
+            GridView2.Rows[index1].BackColor = Color.Red;
 
-            if (index >= k4)
+            Debug.WriteLine(index);
+            Debug.WriteLine(index1);
+
+            if (index1 >= k4)
             {
 
-                GridView2.Rows[index + 1].BackColor = Color.Red;
+                GridView2.Rows[index1 + 1].BackColor = Color.Red;
             }
-            Response.Redirect("Baggage.aspx");
+
+            String mid1=null,mid2=null,aid1,aid2,aid3=null,aid4=null;
+
+
+            aid1 = GridView1.Rows[index].Cells[1].Text;
+            aid2 = GridView2.Rows[index1].Cells[1].Text;
+
+            if (index >=k2)
+            {
+                aid3 = GridView1.Rows[index + 1].Cells[1].Text;
+                mid1 = GridView1.Rows[index + 1].Cells[3].Text;
+            }
+
+            if(index1>=k4)
+            {
+                aid4 = GridView2.Rows[index1 + 1].Cells[1].Text;
+                mid2 = GridView2.Rows[index1 + 1].Cells[3].Text;
+            }
+
+            Debug.WriteLine(aid1);
+            Debug.WriteLine(aid2);
+            Debug.WriteLine(aid3);
+            Debug.WriteLine(aid4);
+            Debug.WriteLine(mid1);
+            Debug.WriteLine(mid2);
+
+            int abc = 0;
+
+            if(mid1!=null && mid2!=null)
+            {
+                String url=(String.Format("PassangerDetail.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}&{10}&{11}", aid1,aid2, dt, rdt, adt, cld, cls,Convert.ToString(abc),aid3,aid4,mid1,mid2));
+                Response.Redirect(url);
+            }
+            if(mid1==null && mid2!=null)
+            {
+                String url = (String.Format("PassangerDetail.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", aid1, aid2, dt, rdt, adt, cld, cls,Convert.ToString(abc+1),aid4,mid2));
+                Response.Redirect(url);
+            }
+            if(mid1!=null && mid2==null)
+            {
+                String url = (String.Format("PassangerDetail.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", aid1, aid2, dt, rdt, adt, cld, cls,Convert.ToString(abc+2),aid3,mid1));
+                Response.Redirect(url);
+            }
+            if(mid1==null && mid2==null)
+            {
+                String url = (String.Format("PassangerDetail.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}", aid1, aid2,dt,rdt,adt,cld,cls,Convert.ToString(abc+3)));
+                Response.Redirect(url);
+            }
+            
             
         }
     }

@@ -130,6 +130,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="PassangerDetail.aspx" />
     <Content Include="Passanger_detail.aspx" />
     <Content Include="payment.aspx" />
     <Content Include="search.aspx" />
@@ -187,6 +188,13 @@
     </Compile>
     <Compile Include="Final.aspx.designer.cs">
       <DependentUpon>Final.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PassangerDetail.aspx.cs">
+      <DependentUpon>PassangerDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PassangerDetail.aspx.designer.cs">
+      <DependentUpon>PassangerDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Passanger_detail.aspx.cs">
       <DependentUpon>Passanger_detail.aspx</DependentUpon>
