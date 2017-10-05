@@ -389,7 +389,7 @@
                                         <td>
                                             <asp:TextBox ID="TextBox24"
                                                 runat="server"
-                                                CssClass="form-control"></asp:TextBox>
+                                                CssClass="form-control" Text="0" AutoPostBack="True" OnTextChanged="TextBox24_TextChanged"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>

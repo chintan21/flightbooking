@@ -23,7 +23,7 @@
                                                 <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
                                         <br/>
                                                 <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
-                                          <br /><asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+                                          <br /><asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control"></asp:DropDownList></>
                                           <br /><asp:TextBox ID="TextBox5" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
           
                                             </div>
@@ -36,7 +36,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-6 col-xs-offset-6">
-                                            <asp:Button ID="Button1" runat="server" Text="Submit your Message" CssClass="btn-success btn-lg" />    
+                                            <asp:Button ID="Button1" runat="server" Text="Submit your Message" CssClass="btn-success btn-lg" OnClick="Button1_Click" />    
                                             
                                         </div>
                              </div>

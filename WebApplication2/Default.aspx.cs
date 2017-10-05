@@ -10,9 +10,12 @@ namespace WebApplication2
         {
             if (!IsPostBack)
             {
+                TextBox5.Visible = false;
+                ImageButton4.Visible = false;
                 Calendar1.Visible = false;
-            }
-
+                Calendar4.Visible = false;
+            }       
+    
             if (Page.PreviousPage != null)
             {
                 var queryStrings = (Request.QueryString.ToString());
@@ -20,6 +23,9 @@ namespace WebApplication2
 
                 DropDownList7.ClearSelection();
                 DropDownList8.ClearSelection();
+
+               
+
             }
 
         }
@@ -30,41 +36,53 @@ namespace WebApplication2
             String src = DropDownList7.SelectedValue;
             String dest = DropDownList8.SelectedValue;
             String dt = TextBox1.Text;
+            String rdt = TextBox5.Text;
 
-
-
-
-
-
-
-
-            if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)))
+            if (RadioButtonList1.SelectedIndex.ToString() == "0")
             {
 
-                if (src != dest)
+                if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)))
                 {
-                    Debug.WriteLine("in if statement");
-                    String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue));
-                    Response.Redirect(url);
+
+                    if (src != dest)
+                    {
+                        Debug.WriteLine("in if statement");
+                        String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue));
+                        Response.Redirect(url);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
+
                 }
             }
-            else
+            if(RadioButtonList1.SelectedIndex.ToString()=="1")
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
+                Debug.WriteLine("Round Trip selected");
+                if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)) && (Calendar4.SelectedDate > System.DateTime.Today) && (Calendar4.SelectedDate < System.DateTime.Today.AddDays(300)))
+                {
+                    if (src != dest)
+                    {
+                        String url = (String.Format("search_round.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue, rdt));
+                        Response.Redirect(url);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
 
+                }
             }
         }
     
+
         protected void Button2_Click(object sender, EventArgs e)
         {
-            String src = DropDownList9.SelectedValue;
-            String dest = DropDownList10.SelectedValue;
-            if (src != dest) { 
-            Debug.WriteLine("in if statement");
-            String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}", src, dest));
-            Response.Redirect(url);
-            }
+           
+
         }
+
 
         protected void ImageButton1_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         {
@@ -78,45 +96,49 @@ namespace WebApplication2
             }
         }
 
+        protected void Calendar4_SelectionChanged(object sender, EventArgs e)
+        {
+            TextBox5.Text = Calendar4.SelectedDate.ToShortDateString();
+            Calendar4.Visible = false;
+        }
+
+        protected void ImageButton4_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
+            if (Calendar4.Visible)
+            {
+                Calendar4.Visible = false;
+            }
+            else
+            {
+                Calendar4.Visible = true;
+            }
+        }
+
+        
+
+
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+
         {
             TextBox1.Text = Calendar1.SelectedDate.ToShortDateString();
             Calendar1.Visible = false;
         }
 
-        protected void ImageButton2_Click(object sender, System.Web.UI.ImageClickEventArgs e)
-        {
-            if (Calendar2.Visible)
-            {
-                Calendar2.Visible = false;
-            }
-            else
-            {
-                Calendar2.Visible = true;
-            }
-        }
-        
-        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
-        {
-            TextBox2.Text = Calendar2.SelectedDate.ToShortDateString();
-            Calendar2.Visible = false;
-        }
-        protected void ImageButton3_Click(object sender, System.Web.UI.ImageClickEventArgs e)
-        {
-            if (Calendar3.Visible)
-            {
-                Calendar3.Visible = false;
-            }
-            else
-            {
-                Calendar3.Visible = true;
-            }
-        }
 
-        protected void Calendar3_SelectionChanged(object sender, EventArgs e)
+
+        protected void RadioButtonList1_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            TextBox4.Text = Calendar3.SelectedDate.ToShortDateString();
-            Calendar3.Visible = false;
+            if (RadioButtonList1.SelectedIndex == 1)
+            {
+                TextBox5.Visible = true;
+                ImageButton4.Visible = true;
+
+            }
+            if (RadioButtonList1.SelectedIndex == 0)
+            {
+                TextBox5.Visible = false;
+                ImageButton4.Visible = false;
+            }
         }
     }
 }
