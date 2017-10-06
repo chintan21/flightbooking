@@ -15,12 +15,15 @@
                                 <div class="col-md-10 col-md-offset-1">
                                     <div class="form-group" style="color: white">
                                         <h4>
-                                        
-                                            <asp:RadioButtonList ID="RadioButtonList1" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged1" CssClass="radio radiobuttonlist col-sm-9"  Width="500px">
-                                          
-                                              <asp:ListItem Selected="True" Text="One Way"></asp:ListItem>
-                                              <asp:ListItem Text="         Round Trip"></asp:ListItem>
+                                         <div class="radio-inline">
+                                            <asp:RadioButtonList ID="RadioButtonList1"  runat="server"  AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged1" CssClass="radio radiobuttonlist col-sm-3"  Width="500px" RepeatDirection="Horizontal"
+    RepeatLayout="Flow">
+                                         
+                                              <asp:ListItem Selected="True" Text="One Way">One Way &nbsp &nbsp &nbsp &nbsp </asp:ListItem>
+                                              <asp:ListItem Text="Round Trip">Round Trip</asp:ListItem>
+                                             
                                         </asp:RadioButtonList>
+                                        </div>
                                         </h4>
                                         <asp:TextBox ID="TextBox2" runat="server" TextMode="Date"></asp:TextBox>
                                     
@@ -76,8 +79,10 @@
                                                                     <tr>
                                                                     <td colspan="8">
                                                                         <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                                                        
                                                                     </td>
                                                                     <td>
+                                                                        &nbsp &nbsp
                                                                         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/calaend.jpg" Height="30px" Width="30px" OnClick="ImageButton1_Click" />
                                                                     <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" OnSelectionChanged="Calendar1_SelectionChanged">
                                                                         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
@@ -96,7 +101,9 @@
                                                         <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                                                </td>
                                                         <td>
-                                                                                <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Images/calaend.jpg" Height="30px" Width="30px" OnClick="ImageButton4_Click" />
+                                                                                                                                    &nbsp &nbsp
+
+                                                                    <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Images/calaend.jpg" Height="30px" Width="30px" OnClick="ImageButton4_Click" />
                                                                     <asp:Calendar ID="Calendar4" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" OnSelectionChanged="Calendar4_SelectionChanged">
                                                                         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                                                                         <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
@@ -191,13 +198,12 @@
 
 
                                 </div>
-                   
 
-                    </div>
-                </div>
-            </div>
-        </div>
-   
-    </div>
+                            </div>
+
+                        </div>
+
+                       
+ 
 
 </asp:Content>

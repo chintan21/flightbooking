@@ -8,11 +8,13 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBox5.Visible = false;
-            ImageButton4.Visible = false;
-            Calendar1.Visible = false;
-            Calendar4.Visible = false;
-
+            if (!IsPostBack)
+            {
+                TextBox5.Visible = false;
+                ImageButton4.Visible = false;
+                Calendar1.Visible = false;
+                Calendar4.Visible = false;
+            }       
     
             if (Page.PreviousPage != null)
             {
@@ -21,6 +23,9 @@ namespace WebApplication2
 
                 DropDownList7.ClearSelection();
                 DropDownList8.ClearSelection();
+
+               
+
             }
 
         }
@@ -31,31 +36,54 @@ namespace WebApplication2
             String src = DropDownList7.SelectedValue;
             String dest = DropDownList8.SelectedValue;
             String dt = TextBox1.Text;
+            String rdt = TextBox5.Text;
 
-
-
-
-
-
-
-
-            if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)))
+            if (RadioButtonList1.SelectedIndex.ToString() == "0")
             {
 
-                if (src != dest)
+                if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)))
                 {
-                    Debug.WriteLine("in if statement");
-                    String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue));
-                    Response.Redirect(url);
+
+                    if (src != dest)
+                    {
+                        Debug.WriteLine("in if statement");
+                        String url = (String.Format("search.aspx?{0}&{1}&{2}&{3}&{4}&{5}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue));
+                        Response.Redirect(url);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
+
                 }
             }
-            else
+            if(RadioButtonList1.SelectedIndex.ToString()=="1")
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
+                Debug.WriteLine("Round Trip selected");
+                if ((Calendar1.SelectedDate > System.DateTime.Today) && (Calendar1.SelectedDate < System.DateTime.Today.AddDays(300)) && (Calendar4.SelectedDate > System.DateTime.Today) && (Calendar4.SelectedDate < System.DateTime.Today.AddDays(300)))
+                {
+                    if (src != dest)
+                    {
+                        String url = (String.Format("search_round.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}", src, dest, dt, DropDownList3.SelectedValue, DropDownList1.SelectedValue, DropDownList2.SelectedValue, rdt));
+                        Response.Redirect(url);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Entered date is invalid!!')", true);
 
+                }
             }
         }
     
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+
         protected void ImageButton1_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         {
             if (Calendar1.Visible)
@@ -86,7 +114,11 @@ namespace WebApplication2
             }
         }
 
+        
+
+
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+
         {
             TextBox1.Text = Calendar1.SelectedDate.ToShortDateString();
             Calendar1.Visible = false;

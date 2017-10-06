@@ -37,6 +37,7 @@ namespace WebApplication2
             inter = Convert.ToBoolean(HttpUtility.UrlDecode(a[7]));
             String id1 = "0";
 
+            Session["Class"] = cls;
 
             String constring = ConfigurationManager.ConnectionStrings["flight"].ConnectionString;
             SqlConnection con = new SqlConnection(constring);
@@ -533,10 +534,12 @@ namespace WebApplication2
                 }
             }
 
+            Session["price"] = Label14.Text;
             Session["temp_adt"] = dt;
             Session["temp_cld"] = dt1;
             Session["e_luggage"] = TextBox24.Text;
             Session["e_lug_price"] = Label21.Text;
+            
 
 
             bool isHuman = example.Validate(txtCaptcha.Text);
@@ -548,15 +551,20 @@ namespace WebApplication2
              }
              else
              {
-                String url = (String.Format("Payment.aspx?{0}", Label2.Text));
+                String url = (String.Format("Payment.aspx?{0}&{1}&{2}&{3}", HttpUtility.UrlEncode(Label2.Text),HttpUtility.UrlEncode(Label16.Text),HttpUtility.UrlEncode(Label4.Text),HttpUtility.UrlEncode(TextBox23.Text)));
                 Response.Redirect(url);
              }
              
 
         }
 
-       
-
-       
+        protected void TextBox24_TextChanged(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(TextBox24.Text))
+            {
+                TextBox24.Text = "0";
+            }     
+          
+        }
     }
 }

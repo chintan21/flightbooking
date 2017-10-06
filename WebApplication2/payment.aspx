@@ -224,7 +224,7 @@
                                 </div>
                                 <br />
                                 <div class="row">
-                                    <asp:Button ID="Button2" runat="server" class="btn btn-success btn-lg" Text="Make Payment" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button2" runat="server" class="btn btn-success btn-lg" Text="Make Payment" OnClick="Button2_Click" />
 
                                 </div>
 
@@ -252,7 +252,7 @@
 
                                 <br />
                                 <div class="row">
-                                    <asp:Button ID="Button3" runat="server" class="btn btn-success btn-lg" Text="Make Payment" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button3" runat="server" class="btn btn-success btn-lg" Text="Make Payment" OnClick="Button3_Click" />
 
                                 </div>
 
@@ -264,9 +264,20 @@
         </div>
         <div class="col-md-4">
             <div class="well">
-                <h1><asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h1>
-                <h3><asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></h3>
+                <h3><asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h3>
+                <h5><asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></h5>
+                <h5><asp:Label ID="Label11" runat="server" Text="Label"></asp:Label></h5>
+                <h3>Contact Details:</h3>
+                <h5><asp:Label ID="Label12" runat="server" Text="Label"></asp:Label></h5>
+                <h5><asp:Label ID="Label13" runat="server" Text="Label"></asp:Label></h5>
+                <h3>Total Fare:</h3>
+                <h5><asp:Label ID="Label14" runat="server" Text="Label"></asp:Label></h5>
+                <h5><asp:Label ID="Label15" runat="server" Text="Label"></asp:Label></h5>
+                <h5><asp:Label ID="Label16" runat="server" Text="Label" BackColor="Red"></asp:Label></h5>
+
+                <h3>Passanger Details:</h3>
                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-bordered table-condensed"></asp:GridView>
+                <asp:GridView ID="GridView2" runat="server" CssClass="table table-striped table-bordered table-condensed"></asp:GridView>
 
             </div>
         </div>

@@ -130,9 +130,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="PassangerDetail.aspx" />
     <Content Include="Passanger_detail.aspx" />
     <Content Include="payment.aspx" />
     <Content Include="search.aspx" />
+    <Content Include="search_round.aspx" />
     <Content Include="Search_test.aspx" />
     <Content Include="Site1.Master" />
     <Content Include="Default.aspx" />
@@ -142,6 +144,7 @@
     <Content Include="css\bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -179,18 +182,19 @@
     <Compile Include="Contact_us.aspx.designer.cs">
       <DependentUpon>Contact_us.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Final.aspx.cs">
       <DependentUpon>Final.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Final.aspx.designer.cs">
       <DependentUpon>Final.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PassangerDetail.aspx.cs">
+      <DependentUpon>PassangerDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PassangerDetail.aspx.designer.cs">
+      <DependentUpon>PassangerDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Passanger_detail.aspx.cs">
       <DependentUpon>Passanger_detail.aspx</DependentUpon>
@@ -214,6 +218,13 @@
     <Compile Include="search.aspx.designer.cs">
       <DependentUpon>search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="search_round.aspx.cs">
+      <DependentUpon>search_round.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="search_round.aspx.designer.cs">
+      <DependentUpon>search_round.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Search_test.aspx.cs">
       <DependentUpon>Search_test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,22 +246,15 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewData.aspx.cs">
-      <DependentUpon>ViewData.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewData.aspx.designer.cs">
-      <DependentUpon>ViewData.aspx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ticket.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Ticket.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
