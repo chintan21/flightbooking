@@ -20,10 +20,13 @@
       .row.content {height: auto;} 
     }
   </style>
-
+    <div class="panel panel-primary" style="background-color: rgba(3, 3, 3, 0.57)">
+        <div class="panel-body">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6 col-md-offset-1">
             <div class="well">
+                <div class="row">
+                    <div class="col-md-12">
                 <h2>PAYMENT OPTIONS</h2>
                 <div class="row">
                     <ul class="nav nav-tabs">
@@ -46,7 +49,10 @@
                                 </div>
                                 <div class="row">
                                     <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox>
-
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox1" ValidationGroup="credit"></asp:RequiredFieldValidator>
+                                        
+                                
                                 </div>
                                 <div class="row">
                                     <h4>
@@ -54,7 +60,12 @@
                                     </h4>
                                 </div>
                                 <div class="row">
-                                    <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextBox2" class="form-control" runat="server" MaxLength="16"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox2" ValidationGroup="credit"></asp:RequiredFieldValidator>
+                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox2"
+                                                ErrorMessage="Enter a valid number" ValidationExpression="[0-9]{16}" ValidationGroup="credit"></asp:RegularExpressionValidator>
+ 
                                 </div>
 
                                 <div class="row">
@@ -115,16 +126,20 @@
                                         </asp:DropDownList>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:TextBox ID="TextBox4" class="form-control" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextBox4" class="form-control" runat="server" TextMode="Password" MaxLength="3"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox4" ValidationGroup="credit"></asp:RequiredFieldValidator>
+                                      
                                     </div>
                                 </div>
                                 <br />
                                 <div class="row">
-                                    <asp:CheckBox ID="CheckBox1" runat="server" Text="  By checking this box, I agree to the Terms &amp; Conditions &amp; Privacy Policy." />
+                                    <asp:CheckBox ID="CheckBox1" runat="server" Text="  By checking this box, I agree to the Terms &amp; Conditions &amp; Privacy Policy." AutoPostBack="False" CausesValidation="False" />
                                 </div>
                                 <br />
                                 <div class="row">
-                                    <asp:Button ID="Button1" runat="server" class="btn btn-success btn-lg" Text="Make Payment" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button1" runat="server" class="btn btn-success btn-lg" 
+                                        Text="Make Payment" OnClick="Button1_Click" OnClientClick="return Validate()"/>
 
                                 </div>
 
@@ -146,6 +161,9 @@
                                 </div>
                                 <div class="row">
                                     <asp:TextBox ID="TextBox3" class="form-control" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox3" ValidationGroup="debit"></asp:RequiredFieldValidator>
+                                        
 
                                 </div>
                                 <div class="row">
@@ -154,7 +172,13 @@
                                     </h4>
                                 </div>
                                 <div class="row">
-                                    <asp:TextBox ID="TextBox5" class="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextBox5" class="form-control" runat="server" MaxLength="16"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox5" ValidationGroup="debit"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox5"
+                                                ErrorMessage="Enter a valid number" ValidationExpression="[0-9]{16}" ValidationGroup="debit"></asp:RegularExpressionValidator>
+ 
+                                    
                                 </div>
 
                                 <div class="row">
@@ -215,7 +239,10 @@
                                         </asp:DropDownList>
                                     </div>
                                     <div class="col-sm-4">
-                                        <asp:TextBox ID="TextBox6" class="form-control" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextBox6" class="form-control" runat="server" MaxLength="3" TextMode="Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox6" ValidationGroup="debit"></asp:RequiredFieldValidator>
+                                    
                                     </div>
                                 </div>
                                 <br />
@@ -224,7 +251,8 @@
                                 </div>
                                 <br />
                                 <div class="row">
-                                    <asp:Button ID="Button2" runat="server" class="btn btn-success btn-lg" Text="Make Payment" OnClick="Button2_Click" />
+                                    <asp:Button ID="Button2" runat="server" class="btn btn-success btn-lg" Text="Make Payment" 
+                                        OnClientClick="return Validate()" OnClick="Button2_Click" />
 
                                 </div>
 
@@ -245,6 +273,9 @@
                                         <asp:ListItem>ICICI Bank</asp:ListItem>
                                         <asp:ListItem>City Bank</asp:ListItem>
                                     </asp:RadioButtonList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
+                                         ErrorMessage="Please select a valid option"  ForeColor="Red" Display="Dynamic" ControlToValidate="RadioButtonList1" ValidationGroup="net"></asp:RequiredFieldValidator>
+                                    
 
 
                                 </div>
@@ -252,16 +283,41 @@
 
                                 <br />
                                 <div class="row">
-                                    <asp:Button ID="Button3" runat="server" class="btn btn-success btn-lg" Text="Make Payment" OnClick="Button3_Click" />
+                                    <asp:Button ID="Button3" runat="server" class="btn btn-success btn-lg" Text="Make Payment" 
+                                        OnClientClick="return Validate()" OnClick="Button3_Click" />
 
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                </div>
+                </div></div>
+                    </div>
             </div>
         </div>
+        <script type="text/javascript">
+            function validate()
+            {
+                var a, b, c;
+                a = Page_ClientValidate('credit');
+                b = Page_ClientValidate('debit');
+                c = Page_ClientValidate('net');
+                if ((a == true) && (b == false)&&(c=false))
+                {
+                    return a;
+                }
+                else if ((a == false) && (b == true) && (c = false)) {
+                    return b;
+                }else if ((a == false) && (b == false) && (c = true)) {
+                    return c;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        </script>
         <div class="col-md-4">
             <div class="well">
                 <h3><asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></h3>
@@ -281,4 +337,6 @@
 
             </div>
         </div>
+    </div>
+        </div></div>
 </asp:Content>
