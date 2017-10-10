@@ -21,17 +21,17 @@ namespace WebApplication2
             var queryStrings = (Request.QueryString.ToString());
             var arrQueryStrings = queryStrings.Split('&');
 
-            String src = arrQueryStrings[0];
-            String dest = arrQueryStrings[1];
-            String dt = arrQueryStrings[2];
+            String src = HttpUtility.UrlDecode(arrQueryStrings[0]);
+            String dest = HttpUtility.UrlDecode(arrQueryStrings[1]);
+            String dt = HttpUtility.UrlDecode(arrQueryStrings[2]);
             
             
             Label2.Text = " " + src + " to " + dest;
             Label2.Visible = true;
             Label4.Text = " " + dt ;
             Label4.Visible = true;
-            Label9.Text = arrQueryStrings[4];
-            Label11.Text = arrQueryStrings[5];
+            Label9.Text = HttpUtility.UrlDecode(arrQueryStrings[4]);
+            Label11.Text = HttpUtility.UrlDecode(arrQueryStrings[5]);
 
         }
         protected void Page_Load(object sender, EventArgs e)

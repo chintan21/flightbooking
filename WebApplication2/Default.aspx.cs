@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Web.UI;
 
 namespace WebApplication2
@@ -98,7 +99,7 @@ namespace WebApplication2
 
         protected void Calendar4_SelectionChanged(object sender, EventArgs e)
         {
-            TextBox5.Text = Calendar4.SelectedDate.ToShortDateString();
+            TextBox5.Text = Calendar4.SelectedDate.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
             Calendar4.Visible = false;
         }
 
@@ -120,7 +121,7 @@ namespace WebApplication2
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
 
         {
-            TextBox1.Text = Calendar1.SelectedDate.ToShortDateString();
+            TextBox1.Text = Calendar1.SelectedDate.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
             Calendar1.Visible = false;
         }
 

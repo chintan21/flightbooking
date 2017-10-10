@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PassangerDetail.aspx.cs" Inherits="WebApplication2.PassangerDetail" %>
 <%@ Register Assembly="BotDetect" Namespace="BotDetect.Web.UI" TagPrefix="BotDetect" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
 
      <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -119,10 +121,340 @@
                                  <div class="col-sm-2">
                                     <asp:Label ID="Label14" runat="server" Text="Enter required luggage"></asp:Label>
 
-                                     <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" AutoPostBack="true" AutoCompleteType="Disabled"></asp:TextBox>
+                                     <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="TextBox1_TextChanged">0</asp:TextBox>
                                 </div>
                                 </div>
                             </div>
+                        <div class="well">
+                            <div class="table-responsive">
+                                <table class="table" id="tadult" runat="server">
+
+                                    <caption>Passenger Details(Adults)</caption>
+
+                                    <thead>
+                                        <tr>
+                                            <th>S no.</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
+                                            <th>ID Card Type</th>
+                                            <th>ID Card No.</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr id="a1" runat="server">
+                                            <td>1</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select Gender</asp:ListItem>
+                                                    <asp:ListItem>Male</asp:ListItem>
+                                                    <asp:ListItem>Female</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select</asp:ListItem>
+                                                    <asp:ListItem>Aadhar Card</asp:ListItem>
+                                                    <asp:ListItem>PAN Card</asp:ListItem>
+                                                    <asp:ListItem>Draving license</asp:ListItem>
+                                                    <asp:ListItem>Passport</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr id="a2" runat="server">
+                                            <td>2</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList3" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select Gender</asp:ListItem>
+                                                    <asp:ListItem>Male</asp:ListItem>
+                                                    <asp:ListItem>Female</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList4" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select</asp:ListItem>
+                                                    <asp:ListItem>Aadhar Card</asp:ListItem>
+                                                    <asp:ListItem>PAN Card</asp:ListItem>
+                                                    <asp:ListItem>Draving license</asp:ListItem>
+                                                    <asp:ListItem>Passport</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </td>
+                                        </tr>
+
+                                        <tr id="a3" runat="server">
+                                            <td>3</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox9" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList5" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select Gender</asp:ListItem>
+                                                    <asp:ListItem>Male</asp:ListItem>
+                                                    <asp:ListItem>Female</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList6" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select</asp:ListItem>
+                                                    <asp:ListItem>Aadhar Card</asp:ListItem>
+                                                    <asp:ListItem>PAN Card</asp:ListItem>
+                                                    <asp:ListItem>Draving license</asp:ListItem>
+                                                    <asp:ListItem>Passport</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox10" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </td>
+                                        </tr>
+
+                                        <tr id="a4" runat="server">
+                                            <td>4</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox11" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox12" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList7" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select Gender</asp:ListItem>
+                                                    <asp:ListItem>Male</asp:ListItem>
+                                                    <asp:ListItem>Female</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList8" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select</asp:ListItem>
+                                                    <asp:ListItem>Aadhar Card</asp:ListItem>
+                                                    <asp:ListItem>PAN Card</asp:ListItem>
+                                                    <asp:ListItem>Draving license</asp:ListItem>
+                                                    <asp:ListItem>Passport</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox13" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </td>
+                                        </tr>
+
+                                        <tr id="a5" runat="server">
+                                            <td>5</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox14" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox15" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList9" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select Gender</asp:ListItem>
+                                                    <asp:ListItem>Male</asp:ListItem>
+                                                    <asp:ListItem>Female</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList10" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select</asp:ListItem>
+                                                    <asp:ListItem>Aadhar Card</asp:ListItem>
+                                                    <asp:ListItem>PAN Card</asp:ListItem>
+                                                    <asp:ListItem>Draving license</asp:ListItem>
+                                                    <asp:ListItem>Passport</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox16" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr id="a6" runat="server">
+                                            <td>6</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox17" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox18" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList11" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select Gender</asp:ListItem>
+                                                    <asp:ListItem>Male</asp:ListItem>
+                                                    <asp:ListItem>Female</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList12" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select</asp:ListItem>
+                                                    <asp:ListItem>Aadhar Card</asp:ListItem>
+                                                    <asp:ListItem>PAN Card</asp:ListItem>
+                                                    <asp:ListItem>Draving license</asp:ListItem>
+                                                    <asp:ListItem>Passport</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox19" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+
+          
+                        <div class="well" id="c3">
+                            <div class="table-responsive">
+                                <table class="table" id="tchild" runat="server">
+
+                                    <caption>Children Below 5 Years</caption>
+
+                                    <thead style="text-align: center">
+                                        <tr>
+                                            <th>S no.</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
+
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        <tr id="c1" runat="server">
+                                            <td>1</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox20" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox21" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList13" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select Gender</asp:ListItem>
+                                                    <asp:ListItem>Male</asp:ListItem>
+                                                    <asp:ListItem>Female</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                        </tr>
+
+                                        <tr id="c2" runat="server">
+                                            <td>2</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox22" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox23" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList14" runat="server" CssClass="form-control">
+                                                    <asp:ListItem Value="-1">Select Gender</asp:ListItem>
+                                                    <asp:ListItem>Male</asp:ListItem>
+                                                    <asp:ListItem>Female</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="well">
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <caption>Contact Details & Total</caption>
+                                    <tr>
+                                        <th>Contact Number</th>
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+                                        <th>Grand Total</th>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="TextBox24" runat="server" CssClass="form-control" Width="250px"></asp:TextBox>
+                                        </td>
+                                         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+                                        <td>
+                                            <asp:Label ID="Label18" runat="server" Text=""></asp:Label>
+                                        </td>
+                                       
+                                    </tr>
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="well">
+                        <div class="table-responsive">
+                                <table class="table">
+                                   
+
+                                <tr>
+                                  <td>
+                                        <BotDetect:WebFormsCaptcha ID="example" runat="server" />
+                                        <asp:TextBox ID="txtCaptcha" runat="server" CssClass="form-control" Width="250px"></asp:TextBox>
+
+                                      </td>
+                                   
+
+                                   <td>
+                                       <asp:Button ID="Button2" runat="server" Text="Make Payment" CssClass="btn btn-danger btn-lg" OnClick="Button2_Click" />
+
+                                      </td>
+
+                                  </tr>
+                                         </table>
+                                    </div>
+                                   </div>
+
+
+                                </div>
+
+                            </div>
+
                             </div>
                         </div>
 </asp:Content>
