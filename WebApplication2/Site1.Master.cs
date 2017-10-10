@@ -36,7 +36,7 @@ namespace WebApplication2
                     Button6.Visible = false;
                     Button9.Visible = false;
                     Button13.Visible = true;
-                    Button14.Visible = true;
+                    Button14.Visible = false;
 
 
                 }
@@ -59,6 +59,7 @@ namespace WebApplication2
                 Label3.Visible = true;
                 Label4.Visible = true;
                 Button10.Visible = false;
+                Button14.Visible = false;
             }
 
         }
@@ -291,6 +292,12 @@ namespace WebApplication2
         protected void Button14_Click(object sender, EventArgs e)
         {
             Response.Redirect("ViewData.aspx");
+
+        }
+
+        protected void Button14_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Database.aspx");
 
         }
     }
