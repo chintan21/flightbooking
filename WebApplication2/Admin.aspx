@@ -12,8 +12,11 @@
                         <li class="active"><a data-toggle="tab" href="#home">Add Flight</a></li>
                         <li><a data-toggle="tab" href="#menu1">Add AirLines</a></li>
                         <li><a data-toggle="tab" href="#menu2">Add Airport</a></li>
+                        
 
                     </ul>
+
+                 
                 </div>
                 <div class="tab-content">
                      <div id="home" class="tab-pane fade in active">
@@ -31,6 +34,9 @@
                                                 <h4>Destination</h4><br />
                                                 <h4>Departure Time</h4><br />
                                                 <h4>Arrival Time</h4>
+                                                <h4>Class</h4>
+                                                <h4>Total Seat</h4>
+                                                <h4>Price</h4>
                                             </div>
                                             <div class="col-xs-6">
                                                 <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox>    

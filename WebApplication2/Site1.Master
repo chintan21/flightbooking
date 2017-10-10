@@ -84,20 +84,21 @@
     <ul class="nav navbar-nav">
       <li class="active" ><a><asp:Button ID="Button8" class="btn btn-primary" runat="server" Text="Home" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button8_Click" /></a></li>
         <li><a><asp:Button ID="Button9" class="btn btn-primary" runat="server" Text="Special Offers" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" /></a></li>
-         
-          <li><a ><asp:Button ID="Button6" class="btn btn-primary" runat="server" Text="Baggage" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button6_Click" /></a></li>
+         <li><a>
+             <asp:Button ID="Button13" runat="server" Text="Enter in Database" class="btn btn-primary" Visible="False" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button13_Click"/></a></li>
+        <li><a ><asp:Button ID="Button6" class="btn btn-primary" runat="server" Text="Baggage" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button6_Click" /></a></li>
+        <li><a>
+            <asp:Button ID="Button14" runat="server" Text="View Database" class="btn btn-primary" Visible="False" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button14_Click" /></a></li>  
+        
           <li ><a ><asp:Button ID="Button7" class="btn btn-primary" runat="server" Text="Contact Us" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button7_Click" /></a></li>
-           <li ><a ><asp:Button ID="Button14" class="btn btn-primary" runat="server" Text="My Bookings" Visible="False" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" /></a></li>
-           <li><a><asp:Button ID="Button13" runat="server" Text="Enter in DATABASE" class="btn btn-primary" Visible="False" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button13_Click"/></a></li>
-           <li ><a ><asp:Button ID="Button11" class="btn btn-primary" runat="server" Text="Feedbacks" Visible="False" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" /></a></li>
-
-        </ul>
+        <li ><a ><asp:Button ID="Button11" class="btn btn-primary" runat="server" Text="Feedbacks" Visible="False" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" /></a></li>
+    </ul>
       <ul class="nav navbar-nav navbar-right">
           
          <li><a href="#" data-toggle="modal" data-target="#myModal" ><asp:Label ID="Label3" runat="server" Visible="True"><span class="glyphicon glyphicon-log-in"></span>&nbspLogin</asp:Label></a></li>
         <li><a href="#" data-toggle="modal" data-target="#myModal1" ><asp:Label ID="Label4" runat="server" Visible="True"><span class="glyphicon glyphicon-user"></span>&nbspSignup</asp:Label>
             </a></li>   
-          <!--<li><a href="#" data-toggle="modal" data-target="myModal2"><asp:Label ID="Label2" runat="server" Visible="False" ></asp:Label></a></li>-->
+          
           <li><a><asp:Button ID="Button10" class="btn btn-primary" runat="server" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" Visible="False" OnClick="Button10_Click" /></a></li>
           <li><a><asp:Button ID="Button12" class="btn btn-primary" runat="server" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" Visible="False" OnClick="Button10_Click" Text="Logout" /></a></li>
           
