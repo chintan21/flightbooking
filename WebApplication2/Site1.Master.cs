@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.UI;
+using System.Net.Mail;
 
 namespace WebApplication2
 {
@@ -123,6 +124,19 @@ namespace WebApplication2
                     cmd1.ExecuteNonQuery();
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Your Account has been created!!')", true);
 
+                    MailMessage mail = new MailMessage();
+                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                    mail.From = new MailAddress("rohandhamecha45@gmail.com");
+                    mail.To.Add(b);
+                    mail.Subject = "UDAAN - Online Flight Booking";
+                    mail.Body = "Hello, "+(b.Split('@'))[0]+", "+"Thank you for registering to UDAAN. Your account has been succesfully created.";
+
+                    SmtpServer.Port = 587;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("rohandhamecha45@gmail.com", "24111974");
+                    SmtpServer.EnableSsl = true;
+
+                    SmtpServer.Send(mail);
                 }
                 else
                 {
@@ -240,7 +254,7 @@ namespace WebApplication2
 
         protected void Button8_Click(object sender, EventArgs e)
         {
-           /* if(Button10.Visible==true)
+            if(Button10.Visible==true)
             {
                 String url = (String.Format("Default.aspx?user={0}", a));
                 Response.Redirect(url, false);
@@ -248,8 +262,13 @@ namespace WebApplication2
             else
             {
                 Response.Redirect("Default.aspx");
-            }*/
+            }
             
+        }
+
+        protected void LB1_click(object sender,EventArgs e)
+        {
+            Response.Redirect("Forget.aspx");
         }
 
         protected void Button6_Click(object sender, EventArgs e)

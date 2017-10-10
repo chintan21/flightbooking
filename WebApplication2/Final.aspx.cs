@@ -4,11 +4,18 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using System.Drawing;
+
 
 namespace WebApplication2
 {
@@ -142,7 +149,16 @@ namespace WebApplication2
             adp.UpdateCommand.ExecuteNonQuery();
 
 
+            if (File.Exists(Server.MapPath("Barcode.txt")))
+            {
+                File.Delete(Server.MapPath("BarCode.txt"));
+            }
+            File.WriteAllText(Server.MapPath("BarCode.txt"), Convert.ToString(bid));
+            Process.Start(Server.MapPath("BarCodeGenerate.exe"));
 
+            Image1.ImageUrl = "images/" +Convert.ToString(bid) + ".png";
+
+            MemoryStream mms = new MemoryStream();
         }
     }
 }
