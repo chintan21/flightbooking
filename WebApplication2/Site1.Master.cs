@@ -271,7 +271,7 @@ namespace WebApplication2
 
         protected void Button14_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewData.aspx");
+            Response.Redirect("Database.aspx");
 
         }
     }
