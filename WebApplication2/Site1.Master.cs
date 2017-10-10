@@ -102,7 +102,7 @@ namespace WebApplication2
             {
                 if (b3 == b2)
                 {
-
+                    
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = ab;
                     cmd.Parameters.AddWithValue("@email", b);
@@ -289,11 +289,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button14_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ViewData.aspx");
-
-        }
+       
 
         protected void Button14_Click(object sender, EventArgs e)
         {

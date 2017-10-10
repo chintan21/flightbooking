@@ -11,14 +11,16 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
+   
+
     public partial class payment : System.Web.UI.Page
     {
         Decimal bid;
         int gprice;
         String mno;
         static int count=0;
-        static int arrc;
-
+        static int arrc = 0;
+        static int type = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,22 +29,30 @@ namespace WebApplication2
 
             arrc = a.Length;
 
-            if (arrc == 5)
+            if (arrc == 6)
             {
                 count=count+1;
                 String oway = HttpUtility.UrlDecode(a[0]);
                 var rway1 = oway.Split('_');
                 Label9.Text = rway1[0] + "<br />" + rway1[1];
+                Session["depart"] = rway1[0];
+                Session["return"] = rway1[1];
 
                 oway = HttpUtility.UrlDecode(a[1]);
                 rway1 = oway.Split('_');
 
                 Label10.Text = "Depart Date: " + rway1[0] + "<br />" + "Return Date: " + rway1[1];
+                Session["dt"] = rway1[0];
+                Session["rdt"] = rway1[1];
 
                 oway = HttpUtility.UrlDecode(a[2]);
                 rway1 = oway.Split('_');
 
                 Label11.Text = "Depart Flight ID: " + rway1[0] + "<br />" + "Return Flight ID: " + rway1[1];
+                Session["depart_fid"] = rway1[0];
+                Session["return_fid"] = rway1[1];
+
+                type = Convert.ToInt32(HttpUtility.UrlDecode((a[5])));
 
             }
 
@@ -96,18 +106,21 @@ namespace WebApplication2
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine(arrc);
+
 
             if (CheckBox2.Checked)
             {
-                if (arrc!= 5)
+                if (arrc!= 6)
                 {
                     String url = (String.Format("Final.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}&{10}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Debitcard"), HttpUtility.UrlEncode(Label10.Text), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(Label11.Text), HttpUtility.UrlEncode(TextBox3.Text), HttpUtility.UrlEncode(TextBox5.Text), HttpUtility.UrlEncode(TextBox6.Text), HttpUtility.UrlEncode(DropDownList3.SelectedValue), HttpUtility.UrlEncode(DropDownList4.SelectedValue)));
                     Response.Redirect(url);
                 }
-                if (arrc == 5)
+                if (arrc == 6)
 
                 {
-                    String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}&{10}&{11}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Debitcard"), HttpUtility.UrlEncode(Label10.Text), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(Label11.Text), HttpUtility.UrlEncode(TextBox3.Text), HttpUtility.UrlEncode(TextBox5.Text), HttpUtility.UrlEncode(TextBox6.Text), HttpUtility.UrlEncode(DropDownList3.SelectedValue), HttpUtility.UrlEncode(DropDownList4.SelectedValue),HttpUtility.UrlEncode(Convert.ToString(arrc))));
+                   
+                    String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Debitcard"), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(TextBox3.Text), HttpUtility.UrlEncode(TextBox5.Text), HttpUtility.UrlEncode(TextBox6.Text), HttpUtility.UrlEncode(DropDownList3.SelectedValue), HttpUtility.UrlEncode(DropDownList4.SelectedValue),HttpUtility.UrlEncode(Convert.ToString(type))));
                     Response.Redirect(url);
                 }
             }
@@ -123,17 +136,16 @@ namespace WebApplication2
 
             if (CheckBox1.Checked)
             {
-                if (arrc!= 5)
+                if (arrc!= 6)
                 {
                     String url = (String.Format("Final.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}&{10}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Creditcard"), HttpUtility.UrlEncode(Label10.Text), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(Label11.Text), HttpUtility.UrlEncode(TextBox1.Text), HttpUtility.UrlEncode(TextBox2.Text), HttpUtility.UrlEncode(TextBox4.Text), HttpUtility.UrlEncode(DropDownList1.SelectedValue), HttpUtility.UrlEncode(DropDownList2.SelectedValue)));
                     Response.Redirect(url);
                 }
-                if (arrc==5)
+                if (arrc==6)
 
                 {
-                    Debug.WriteLine("Round trip");
-
-                    String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}&{10}&{11}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Creditcard"), HttpUtility.UrlEncode(Label10.Text), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(Label11.Text), HttpUtility.UrlEncode(TextBox1.Text), HttpUtility.UrlEncode(TextBox2.Text), HttpUtility.UrlEncode(TextBox4.Text), HttpUtility.UrlEncode(DropDownList1.SelectedValue), HttpUtility.UrlEncode(DropDownList2.SelectedValue),HttpUtility.UrlEncode(Convert.ToString(arrc))));
+                   
+                    String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Creditcard"), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(TextBox3.Text), HttpUtility.UrlEncode(TextBox5.Text), HttpUtility.UrlEncode(TextBox6.Text), HttpUtility.UrlEncode(DropDownList3.SelectedValue), HttpUtility.UrlEncode(DropDownList4.SelectedValue), HttpUtility.UrlEncode(Convert.ToString(type))));
                     Response.Redirect(url);
                 }
             }
@@ -147,17 +159,17 @@ namespace WebApplication2
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-           
-            if (arrc!=5)
+
+
+           if (arrc!=6)
             {
                 String url = (String.Format("Final.aspx?{0}&{1}&{2}&{3}&{4}&{5}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("NetBanking"), HttpUtility.UrlEncode(Label10.Text), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(Label11.Text), HttpUtility.UrlEncode(RadioButtonList1.SelectedValue)));
                 Response.Redirect(url);
             }
-            if(arrc==5)
+            if(arrc==6)
             {
-                Debug.WriteLine("Round trip");
-
-                String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("NetBanking"), HttpUtility.UrlEncode(Label10.Text), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(Label11.Text), HttpUtility.UrlEncode(RadioButtonList1.SelectedValue),HttpUtility.UrlEncode(Convert.ToString(arrc))));
+                
+                String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("NetBanking"),HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(RadioButtonList1.SelectedValue),HttpUtility.UrlEncode(Convert.ToString(type))));
                 Response.Redirect(url);
             }
         }
