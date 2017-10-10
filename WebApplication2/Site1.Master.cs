@@ -27,7 +27,7 @@ namespace WebApplication2
                     var arrQueryStrings = queryStrings.Split('=');
                     Label3.Visible = false;
                     Label4.Visible = false;
-                    Label2.Visible = true;
+                    
                     Session["user"] = a;
                     Button10.Visible = true;
                     Button10.Text = "Hello  " +a;
@@ -37,7 +37,7 @@ namespace WebApplication2
                     Button6.Visible = false;
                     Button9.Visible = false;
                     Button13.Visible = true;
-                    Button14.Visible = false;
+                    Button14.Visible = true;
 
 
                 }
@@ -47,7 +47,7 @@ namespace WebApplication2
                     var arrQueryStrings = queryStrings.Split('=');
                     Label3.Visible = false;
                     Label4.Visible = false;
-                    Label2.Visible = true;
+                    
                     
                     Button10.Visible = true;
                     Button10.Text = "Hello, " +a;
@@ -175,10 +175,10 @@ namespace WebApplication2
                         {
                             String ab = (String.Format("Admin.aspx"));
                             Response.Redirect(ab, false);
-                            Label2.Text = a;
+                            
                             Label3.Visible = false;
                             Label4.Visible = false;
-                            Label2.Visible = true;
+                            
                             Button7.Text = "Feedbacks";
                             Button11.Visible = true;
                             break;
@@ -189,10 +189,10 @@ namespace WebApplication2
                         String url = (String.Format("Default.aspx?user={0}",a));
                         Debug.WriteLine("now it is falut");
                         Response.Redirect(url, false);
-                        Label2.Text = a;
+                        
                         Label3.Visible = false;
                         Label4.Visible = false;
-                        Label2.Visible = true;
+                        
                         break;
                         
                        
@@ -219,7 +219,7 @@ namespace WebApplication2
                 Debug.WriteLine("now it is falut");
                 Label3.Visible = false;
                 Label4.Visible = false;
-                Label2.Visible = true;
+                
             }
 
 
@@ -232,10 +232,10 @@ namespace WebApplication2
             
             String url = (String.Format("Contact_us.aspx?user={0}", a));
             Debug.WriteLine("now it is falut");
-            Label2.Text = a;
+            
             Label3.Visible = false;
             Label4.Visible = false;
-            Label2.Visible = true;
+            
             Response.Redirect(url, false);
             }
             else
@@ -245,7 +245,7 @@ namespace WebApplication2
 
         }
 
-        protected void Button10_Click(object sender, EventArgs e)
+        protected void Button12_Click(object sender, EventArgs e)
         {
             count3 = 0;
             Response.Redirect("#");
@@ -282,6 +282,12 @@ namespace WebApplication2
             {
                 Response.Redirect("Baggage.aspx");
             }
+
+        }
+        protected void Button10_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Mybooking.aspx");
+        
 
         }
 
