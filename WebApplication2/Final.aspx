@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Final.aspx.cs" Inherits="WebApplication2.Final" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+          <script type="text/javascript">
+	function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+     window.print();
+     document.body.innerHTML = originalContents;
+}
+</script>
     <style>
         /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
         .row.content {
@@ -20,11 +31,13 @@
                 height: auto;
             }
         }
+
+  
     </style>
     <div class="col-md-12">
         <div class="panel panel-primary" style="background-color: rgba(3, 3, 3, 0.57)">
             <div class="panel-body">
-
+                <asp:Image ID="Image1" runat="server"></asp:Image>
                 <div class="col-xs-offset-1 col-md-10">
                     <div class="well">
                         <div class="row">
@@ -72,8 +85,10 @@
                             <div class="col-md-10">
                         <h1>Thankyou for booking through Udaan..</h1></div>
                         <div class="col-md-2">
-                        <asp:Button ID="Button1" runat="server" Text="Print Ticket" class="btn btn-primary"/>
-                            </div></div>
+
+                            <input id="Button1" type="button" value="button" class="btn btn-primary" onclick="printDiv('printableArea')" />                            
+
+                        </div></div>
                     </div>
                 </div>
             </div>
