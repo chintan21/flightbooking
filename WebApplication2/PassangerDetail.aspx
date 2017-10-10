@@ -147,10 +147,16 @@
                                             <td>1</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox23"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox23"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
@@ -159,6 +165,9 @@
                                                     <asp:ListItem>Male</asp:ListItem>
                                                     <asp:ListItem>Female</asp:ListItem>
                                                 </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="DropDownList1"></asp:RequiredFieldValidator>
+                                           
                                             </td>
                                             <td>
                                                 <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
@@ -171,16 +180,25 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox4"></asp:RequiredFieldValidator>
+                                           
                                             </td>
                                         </tr>
                                         <tr id="a2" runat="server">
                                             <td>2</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox5"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox6"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
@@ -201,6 +219,9 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox7"></asp:RequiredFieldValidator>
+                                           
                                             </td>
                                         </tr>
 
@@ -208,10 +229,16 @@
                                             <td>3</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox8"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox9" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox9"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
@@ -232,6 +259,9 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox10" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox10"></asp:RequiredFieldValidator>
+                                           
                                             </td>
                                         </tr>
 
@@ -239,10 +269,16 @@
                                             <td>4</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox11" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox11"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox12" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox12"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
@@ -263,6 +299,9 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox13" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox13"></asp:RequiredFieldValidator>
+                                           
                                             </td>
                                         </tr>
 
@@ -270,10 +309,16 @@
                                             <td>5</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox14" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox14"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox15" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox15"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
@@ -294,6 +339,9 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox16" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox16"></asp:RequiredFieldValidator>
+                                           
                                             </td>
                                         </tr>
 
@@ -302,10 +350,16 @@
                                             <td>6</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox17" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox17"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox18" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox18"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
@@ -326,6 +380,9 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox19" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox19"></asp:RequiredFieldValidator>
+                                           
                                             </td>
                                         </tr>
 
@@ -358,10 +415,16 @@
                                             <td>1</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox20" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox20"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox21" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox21"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
@@ -377,10 +440,16 @@
                                             <td>2</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox22" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox22"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="TextBox23" runat="server" CssClass="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox23"></asp:RequiredFieldValidator>
+                                           
 
                                             </td>
                                             <td>
@@ -413,6 +482,11 @@
                                     <tr>
                                         <td>
                                             <asp:TextBox ID="TextBox24" runat="server" CssClass="form-control" Width="250px"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox24"></asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox24"
+                                                ErrorMessage="Enter a valid number" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
+
                                         </td>
                                          &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
                                         <td>

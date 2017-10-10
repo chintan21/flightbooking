@@ -20,6 +20,7 @@ namespace WebApplication2
         protected void Button1_Click(object sender, EventArgs e)
         {//add flights
             String a1 = TextBox1.Text;
+
             String a2 = DropDownList2.SelectedItem.ToString();
             String a3 = DropDownList3.SelectedItem.ToString();
             String a4 = DropDownList1.SelectedItem.ToString();
@@ -53,56 +54,73 @@ namespace WebApplication2
 
             SqlConnection con = new SqlConnection(constring);
             con.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter adp = new SqlDataAdapter("select fid from flights", con);
+            adp.Fill(dt);
+            int count = 0;
+            for(int i=0;i<dt.Rows.Count;i++)
+            {
+                if((dt.Rows[i]["fid"].ToString())==a1)
+                {
+                    count++;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Fid Already Existed..')", true);
 
-            string ab1 = "insert into flights(fid,air_id,src_airp,dest_airp,dept_time,arr_time)values(@a1,@a2,@a3,@a4,@a5,@a6)";
-            
-            
-            SqlCommand cmd = new SqlCommand();
+                }
+            }
 
-            cmd.Connection = con;
-
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = ab1;
-
-            cmd.Parameters.AddWithValue("@a1", a1);
-            cmd.Parameters.AddWithValue("@a2", a2);
-            cmd.Parameters.AddWithValue("@a3", a3);
-            cmd.Parameters.AddWithValue("@a4", a4);
-            cmd.Parameters.AddWithValue("@a5", a5);
-            cmd.Parameters.AddWithValue("@a6", a6);
-
-            cmd.ExecuteNonQuery();
-
-            SqlCommand cmd2 = new SqlCommand("insert into Seats(fid,seat_class,Tot_seat,Price,D_lug,E_lug,E_lug_price)values(@a1,@a7,@a8,@a9,@a10,@a11,@a12)",con);
-            
-            cmd2.Parameters.AddWithValue("@a1", a1);
-            cmd2.Parameters.AddWithValue("@a7", a7.FirstOrDefault());
-            cmd2.Parameters.AddWithValue("@a8", a8);
-            cmd2.Parameters.AddWithValue("@a9", a9);
-            cmd2.Parameters.AddWithValue("@a10", a10);
-            cmd2.Parameters.AddWithValue("@a11", a11);
-            cmd2.Parameters.AddWithValue("@a12", a12);
-
-            cmd2.ExecuteNonQuery();
+            if (count == 0)
+            {
+                string ab1 = "insert into flights(fid,air_id,src_airp,dest_airp,dept_time,arr_time)values(@a1,@a2,@a3,@a4,@a5,@a6)";
 
 
-            SqlCommand cmd3 = new SqlCommand("insert into Seats(fid,seat_class,Tot_seat,Price,D_lug,E_lug,E_lug_price)values(@a1,@a17,@a18,@a19,@a10,@a11,@a12)", con);
+                SqlCommand cmd = new SqlCommand();
 
-            
-            cmd3.Parameters.AddWithValue("@a1", a1);
-            cmd3.Parameters.AddWithValue("@a17", a17.FirstOrDefault());
-            cmd3.Parameters.AddWithValue("@a18", a18);
-            cmd3.Parameters.AddWithValue("@a19", a19);
-            cmd3.Parameters.AddWithValue("@a10", a10);
-            cmd3.Parameters.AddWithValue("@a11", a11);
-            cmd3.Parameters.AddWithValue("@a12", a12);
+                cmd.Connection = con;
 
-            cmd3.ExecuteNonQuery();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ab1;
+
+                cmd.Parameters.AddWithValue("@a1", a1);
+                cmd.Parameters.AddWithValue("@a2", a2);
+                cmd.Parameters.AddWithValue("@a3", a3);
+                cmd.Parameters.AddWithValue("@a4", a4);
+                cmd.Parameters.AddWithValue("@a5", a5);
+                cmd.Parameters.AddWithValue("@a6", a6);
+
+                cmd.ExecuteNonQuery();
+
+                SqlCommand cmd2 = new SqlCommand("insert into Seats(fid,seat_class,Tot_seat,Price,D_lug,E_lug,E_lug_price)values(@a1,@a7,@a8,@a9,@a10,@a11,@a12)", con);
+
+                cmd2.Parameters.AddWithValue("@a1", a1);
+                cmd2.Parameters.AddWithValue("@a7", a7.FirstOrDefault());
+                cmd2.Parameters.AddWithValue("@a8", a8);
+                cmd2.Parameters.AddWithValue("@a9", a9);
+                cmd2.Parameters.AddWithValue("@a10", a10);
+                cmd2.Parameters.AddWithValue("@a11", a11);
+                cmd2.Parameters.AddWithValue("@a12", a12);
+
+                cmd2.ExecuteNonQuery();
 
 
-            con.Close();
-            Response.Write("succesfully added to the database");
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Succesfully added to the database..')", true);
+                SqlCommand cmd3 = new SqlCommand("insert into Seats(fid,seat_class,Tot_seat,Price,D_lug,E_lug,E_lug_price)values(@a1,@a17,@a18,@a19,@a10,@a11,@a12)", con);
+
+
+                cmd3.Parameters.AddWithValue("@a1", a1);
+                cmd3.Parameters.AddWithValue("@a17", a17.FirstOrDefault());
+                cmd3.Parameters.AddWithValue("@a18", a18);
+                cmd3.Parameters.AddWithValue("@a19", a19);
+                cmd3.Parameters.AddWithValue("@a10", a10);
+                cmd3.Parameters.AddWithValue("@a11", a11);
+                cmd3.Parameters.AddWithValue("@a12", a12);
+
+                cmd3.ExecuteNonQuery();
+
+
+                con.Close();
+                Response.Write("succesfully added to the database");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Succesfully added to the database..')", true);
+
+            }
         }
 
         

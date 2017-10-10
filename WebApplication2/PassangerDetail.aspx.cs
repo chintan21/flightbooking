@@ -19,6 +19,11 @@ namespace WebApplication2
         int adt, cld;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('MUST LOGIN BEFORE BOOKING..!!')", true);
+                Response.Redirect("Default.aspx");
+            }
             var queryStrings = (Request.QueryString.ToString());
             var arr = queryStrings.Split('&');
 

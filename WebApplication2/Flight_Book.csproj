@@ -139,6 +139,7 @@
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\npm.js" />
+    <Content Include="Mybooking.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -169,7 +170,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ViewData.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -224,6 +224,13 @@
     </Compile>
     <Compile Include="Forget.aspx.designer.cs">
       <DependentUpon>Forget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mybooking.aspx.cs">
+      <DependentUpon>Mybooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mybooking.aspx.designer.cs">
+      <DependentUpon>Mybooking.aspx</DependentUpon>
     </Compile>
     <Compile Include="PassangerDetail.aspx.cs">
       <DependentUpon>PassangerDetail.aspx</DependentUpon>

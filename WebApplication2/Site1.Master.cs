@@ -17,6 +17,7 @@ namespace WebApplication2
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["user"] = null;
            if(count3>0)
 
             {
@@ -27,6 +28,7 @@ namespace WebApplication2
                     var arrQueryStrings = queryStrings.Split('=');
                     Label3.Visible = false;
                     Label4.Visible = false;
+                    
                     Session["user"] = a;
                     Button10.Visible = true;
                     Button10.Text = "Hello  " +a;
@@ -36,7 +38,7 @@ namespace WebApplication2
                     Button6.Visible = false;
                     Button9.Visible = false;
                     Button13.Visible = true;
-                    Button14.Visible = false;
+                    Button14.Visible = true;
 
 
                 }
@@ -47,10 +49,12 @@ namespace WebApplication2
                     Label3.Visible = false;
                     Label4.Visible = false;
                     
+                    
                     Button10.Visible = true;
                     Button10.Text = "Hello, " +a;
                     Session["user"] = a;
                     Button12.Visible = true;
+                    Button14.Visible = true;
                 }
             }
             else
@@ -102,7 +106,7 @@ namespace WebApplication2
             {
                 if (b3 == b2)
                 {
-                    
+
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = ab;
                     cmd.Parameters.AddWithValue("@email", b);
@@ -172,11 +176,12 @@ namespace WebApplication2
                         {
                             String ab = (String.Format("Admin.aspx"));
                             Response.Redirect(ab, false);
+                            
                             Label3.Visible = false;
                             Label4.Visible = false;
+                            
                             Button7.Text = "Feedbacks";
                             Button11.Visible = true;
-                            Button14.Visible = true;
                             break;
 
 
@@ -185,8 +190,10 @@ namespace WebApplication2
                         String url = (String.Format("Default.aspx?user={0}",a));
                         Debug.WriteLine("now it is falut");
                         Response.Redirect(url, false);
+                        
                         Label3.Visible = false;
                         Label4.Visible = false;
+                        
                         break;
                         
                        
@@ -213,6 +220,7 @@ namespace WebApplication2
                 Debug.WriteLine("now it is falut");
                 Label3.Visible = false;
                 Label4.Visible = false;
+                
             }
 
 
@@ -225,8 +233,10 @@ namespace WebApplication2
             
             String url = (String.Format("Contact_us.aspx?user={0}", a));
             Debug.WriteLine("now it is falut");
+            
             Label3.Visible = false;
             Label4.Visible = false;
+            
             Response.Redirect(url, false);
             }
             else
@@ -236,7 +246,7 @@ namespace WebApplication2
 
         }
 
-        protected void Button10_Click(object sender, EventArgs e)
+        protected void Button12_Click(object sender, EventArgs e)
         {
             count3 = 0;
             Response.Redirect("#");
@@ -244,7 +254,7 @@ namespace WebApplication2
         }
 
         protected void Button8_Click(object sender, EventArgs e)
-        { //this is home btn
+        {
             if(Button10.Visible==true)
             {
                 String url = (String.Format("Default.aspx?user={0}", a));
@@ -275,6 +285,12 @@ namespace WebApplication2
             }
 
         }
+        protected void Button10_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Mybooking.aspx");
+        
+
+        }
 
         protected void Button13_Click(object sender, EventArgs e)
         {
@@ -288,8 +304,6 @@ namespace WebApplication2
                 Response.Redirect("Admin.aspx");
             }
         }
-
-       
 
         protected void Button14_Click(object sender, EventArgs e)
         {

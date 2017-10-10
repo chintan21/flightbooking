@@ -39,17 +39,17 @@
                                 <div class="form-group" style="color: white">
                                     <h3>Total Available flights</h3>
                                   <div class="well">
-                                         <asp:GridView ID="GridView1" runat="server"  BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="112px" Width="754px" CssClass="table table-striped table-bordered table-condensed"
+                        <asp:GridView ID="GridView1" runat="server"  BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="112px" Width="754px" CssClass="table table-striped table-bordered table-condensed"
                         AllowPaging="True" AutoGenerateColumns="False"  DataKeyNames="fid" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnRowDeleting="GridView1_RowDeleting" >
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                            <asp:BoundField DataField="fid" HeaderText="fid" ReadOnly="True" SortExpression="fid" />
-                            <asp:BoundField DataField="air_id" HeaderText="air_id" SortExpression="air_id" />
-                            <asp:BoundField DataField="src_airp" HeaderText="src_airp" SortExpression="src_airp" />
-                            <asp:BoundField DataField="dest_airp" HeaderText="dest_airp" SortExpression="dest_airp" />
-                            <asp:BoundField DataField="dept_time" HeaderText="dept_time" SortExpression="dept_time" />
-                            <asp:BoundField DataField="arr_time" HeaderText="arr_time" SortExpression="arr_time" />
+                            <asp:BoundField DataField="fid" HeaderText="Flight ID" ReadOnly="True" SortExpression="fid" />
+                            <asp:BoundField DataField="air_id" HeaderText="Airport ID" SortExpression="air_id" />
+                            <asp:BoundField DataField="src_airp" HeaderText="Source" SortExpression="src_airp" />
+                            <asp:BoundField DataField="dest_airp" HeaderText="Destination" SortExpression="dest_airp" />
+                            <asp:BoundField DataField="dept_time" HeaderText="Departure Time" SortExpression="dept_time" />
+                            <asp:BoundField DataField="arr_time" HeaderText="Arrival time" SortExpression="arr_time" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -109,17 +109,18 @@
                                 <div class="form-group" style="color: white">
                                     <h3>View Seats &  Price</h3>
                                
-                                    <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" DataKeyNames="fid,seat_class">
+                                    <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" Height="112px" Width="754px" CssClass="table table-striped table-bordered table-condensed" DataKeyNames="fid,seat_class">
                                         <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
 
                                         <Columns>
-                                            <asp:BoundField DataField="fid" HeaderText="fid" ReadOnly="True" SortExpression="fid"></asp:BoundField>
-                                            <asp:BoundField DataField="seat_class" HeaderText="seat_class" ReadOnly="True" SortExpression="seat_class"></asp:BoundField>
-                                            <asp:BoundField DataField="Tot_seat" HeaderText="Tot_seat" SortExpression="Tot_seat"></asp:BoundField>
+                                            <asp:BoundField DataField="fid" HeaderText="Flight ID" ReadOnly="True" SortExpression="fid"></asp:BoundField>
+                                            <asp:BoundField DataField="seat_class" HeaderText="Seat-class" ReadOnly="True" SortExpression="seat_class"></asp:BoundField>
+                                            <asp:BoundField DataField="Tot_seat" HeaderText="Total Seat" SortExpression="Tot_seat"></asp:BoundField>
                                             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price"></asp:BoundField>
-                                            <asp:BoundField DataField="D_lug" HeaderText="D_lug" SortExpression="D_lug"></asp:BoundField>
-                                            <asp:BoundField DataField="E_lug" HeaderText="E_lug" SortExpression="E_lug"></asp:BoundField>
-                                            <asp:BoundField DataField="E_lug_price" HeaderText="E_lug_price" SortExpression="E_lug_price"></asp:BoundField>
+                                            <asp:BoundField DataField="D_lug" HeaderText="Default lug" SortExpression="D_lug"></asp:BoundField>
+                                            <asp:BoundField DataField="E_lug" HeaderText="Extra lug" SortExpression="E_lug"></asp:BoundField>
+                                            <asp:BoundField DataField="E_lug_price" HeaderText="Extra lug-price" SortExpression="E_lug_price"></asp:BoundField>
+                                            <asp:CommandField DeleteText="Edit" ShowEditButton="True"></asp:CommandField>
                                         </Columns>
 
                                         <EditRowStyle BackColor="#2461BF"></EditRowStyle>
