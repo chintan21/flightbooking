@@ -32,6 +32,7 @@ namespace WebApplication2
             type = Convert.ToInt32(HttpUtility.UrlDecode(arr[7]));
             int price=0;
 
+            Session["Class"] = cls;
             String aid3;
             String aid4;
             String mid1;

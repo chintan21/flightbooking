@@ -120,7 +120,7 @@ namespace WebApplication2
 
                 {
                    
-                    String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Debitcard"), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(TextBox3.Text), HttpUtility.UrlEncode(TextBox5.Text), HttpUtility.UrlEncode(TextBox6.Text), HttpUtility.UrlEncode(DropDownList3.SelectedValue), HttpUtility.UrlEncode(DropDownList4.SelectedValue),HttpUtility.UrlEncode(Convert.ToString(type))));
+                    String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Debitcard"), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(TextBox3.Text), HttpUtility.UrlEncode(Convert.ToString(type)), HttpUtility.UrlEncode(TextBox5.Text), HttpUtility.UrlEncode(TextBox6.Text), HttpUtility.UrlEncode(DropDownList3.SelectedValue), HttpUtility.UrlEncode(DropDownList4.SelectedValue)));
                     Response.Redirect(url);
                 }
             }
@@ -145,7 +145,7 @@ namespace WebApplication2
 
                 {
                    
-                    String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Creditcard"), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(TextBox3.Text), HttpUtility.UrlEncode(TextBox5.Text), HttpUtility.UrlEncode(TextBox6.Text), HttpUtility.UrlEncode(DropDownList3.SelectedValue), HttpUtility.UrlEncode(DropDownList4.SelectedValue), HttpUtility.UrlEncode(Convert.ToString(type))));
+                    String url = (String.Format("final1.aspx?{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}&{9}", HttpUtility.UrlEncode(Convert.ToString(bid)), HttpUtility.UrlEncode("Creditcard"), HttpUtility.UrlEncode(Convert.ToString(gprice)), HttpUtility.UrlEncode(mno), HttpUtility.UrlEncode(TextBox3.Text), HttpUtility.UrlEncode(Convert.ToString(type)), HttpUtility.UrlEncode(TextBox5.Text), HttpUtility.UrlEncode(TextBox6.Text), HttpUtility.UrlEncode(DropDownList3.SelectedValue), HttpUtility.UrlEncode(DropDownList4.SelectedValue)));
                     Response.Redirect(url);
                 }
             }

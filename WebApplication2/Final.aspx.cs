@@ -58,7 +58,7 @@ namespace WebApplication2
                 adp.InsertCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = Session["user"].ToString();
                 adp.InsertCommand.Parameters.Add("@mno", SqlDbType.Decimal).Value = Convert.ToDecimal(a[4]);
                 adp.InsertCommand.Parameters.Add("@pmode", SqlDbType.VarChar).Value = a[1].FirstOrDefault();
-                adp.InsertCommand.Parameters.Add("@dcno", SqlDbType.Decimal).Value = Convert.ToDecimal(a[8]);
+                adp.InsertCommand.Parameters.Add("@dcno", SqlDbType.Decimal).Value = Convert.ToDecimal(a[7]);
                 adp.InsertCommand.Parameters.Add("@price", SqlDbType.Int).Value = Convert.ToInt32(a[3]);
 
                 adp.InsertCommand.ExecuteNonQuery();
@@ -141,11 +141,11 @@ namespace WebApplication2
             if(blen>1)
             {
                 aid2 = b[1];
-                adp.UpdateCommand = new SqlCommand("update Seat_booked set booked=booked+1 where fid='" + aid2 + "' and class='" + Convert.ToChar((Session["Class"].ToString()).FirstOrDefault()) + "' and bdate='" + ((HttpUtility.UrlDecode(a[2]).Split(':'))[1].Split(' '))[1] + "'", con);
+                adp.UpdateCommand = new SqlCommand("update Seat_booked set booked=booked+'"+adt+"' where fid='" + aid2 + "' and class='" + Convert.ToChar((Session["Class"].ToString()).FirstOrDefault()) + "' and bdate='" + ((HttpUtility.UrlDecode(a[2]).Split(':'))[1].Split(' '))[1] + "'", con);
                 adp.UpdateCommand.ExecuteNonQuery();
             }
 
-            adp.UpdateCommand = new SqlCommand("update Seat_booked set booked=booked+1 where fid='" + aid1 + "' and class='" + Convert.ToChar((Session["Class"].ToString()).FirstOrDefault()) + "'and bdate='"+ ((HttpUtility.UrlDecode(a[2]).Split(':'))[1].Split(' '))[1] + "'", con);
+            adp.UpdateCommand = new SqlCommand("update Seat_booked set booked=booked+'" + adt + "' where fid='" + aid1 + "' and class='" + Convert.ToChar((Session["Class"].ToString()).FirstOrDefault()) + "'and bdate='"+ ((HttpUtility.UrlDecode(a[2]).Split(':'))[1].Split(' '))[1] + "'", con);
             adp.UpdateCommand.ExecuteNonQuery();
 
 
