@@ -27,6 +27,7 @@ namespace WebApplication2
             SqlConnection con = new SqlConnection(constring);
             con.Open();
 
+            DataTable dt1 = new DataTable();
             var queryStrings = (Request.QueryString.ToString());
             var a = queryStrings.Split('&');
 
@@ -64,8 +65,8 @@ namespace WebApplication2
                 adp.InsertCommand.ExecuteNonQuery();
             }
 
-            DataTable dt1 = (DataTable)Session["temp_adt"];
-            int adt = dt1.Rows.Count;
+            DataTable dt5 = (DataTable)Session["temp_adt"];
+            int adt = dt5.Rows.Count;
 
 
 
@@ -75,11 +76,11 @@ namespace WebApplication2
 
                 adp.InsertCommand.Parameters.Add("@bkid", SqlDbType.Decimal).Value = Convert.ToDecimal(a[0]);
                 adp.InsertCommand.Parameters.Add("@sr", SqlDbType.Int).Value = i+1;
-                adp.InsertCommand.Parameters.Add("@name", SqlDbType.VarChar).Value = dt1.Rows[i]["Name"].ToString();
-                adp.InsertCommand.Parameters.Add("@age", SqlDbType.Int).Value = Convert.ToInt32(dt1.Rows[i]["Age"].ToString());
-                adp.InsertCommand.Parameters.Add("@gender", SqlDbType.VarChar).Value = dt1.Rows[i]["Gender"].ToString();
-                adp.InsertCommand.Parameters.Add("@proof", SqlDbType.VarChar).Value = dt1.Rows[i]["ID Card Type"].ToString();
-                adp.InsertCommand.Parameters.Add("@pfno", SqlDbType.Decimal).Value = dt1.Rows[i]["ID Card No."].ToString();
+                adp.InsertCommand.Parameters.Add("@name", SqlDbType.VarChar).Value = dt5.Rows[i]["Name"].ToString();
+                adp.InsertCommand.Parameters.Add("@age", SqlDbType.Int).Value = Convert.ToInt32(dt5.Rows[i]["Age"].ToString());
+                adp.InsertCommand.Parameters.Add("@gender", SqlDbType.VarChar).Value = dt5.Rows[i]["Gender"].ToString();
+                adp.InsertCommand.Parameters.Add("@proof", SqlDbType.VarChar).Value = dt5.Rows[i]["ID Card Type"].ToString();
+                adp.InsertCommand.Parameters.Add("@pfno", SqlDbType.Decimal).Value = dt5.Rows[i]["ID Card No."].ToString();
                 adp.InsertCommand.Parameters.Add("@cld", SqlDbType.Char).Value = 'N';
 
                 adp.InsertCommand.ExecuteNonQuery();
@@ -159,6 +160,69 @@ namespace WebApplication2
             Image1.ImageUrl = "images/" +Convert.ToString(bid) + ".png";
 
             MemoryStream mms = new MemoryStream();
+            String src, dest, dept, arr;
+            DataTable dt2 = new DataTable();
+
+            if(blen>1)
+            {
+                adp.SelectCommand = new SqlCommand("select src_airp,dest_airp,arr_time,dept_time from flights where fid='" + aid2 + "'", con);
+                adp.Fill(dt2);
+
+                dest = dt2.Rows[0]["dest_airp"].ToString();
+                arr= dt2.Rows[0]["arr_time"].ToString();
+                Label12.Text = dt2.Rows[0]["src_airp"].ToString();
+
+                dt2.Reset();
+
+                adp.SelectCommand = new SqlCommand("select src_airp,dest_airp,arr_time,dept_time from flights where fid='" + aid1 + "'", con);
+                adp.Fill(dt2);
+
+                src = dt2.Rows[0]["src_airp"].ToString();
+                dept = dt2.Rows[0]["dept_time"].ToString();
+
+                Label13.Text = aid1 + "," + aid2;
+            }
+
+            else
+            {
+                adp.SelectCommand = new SqlCommand("select src_airp,dest_airp,arr_time,dept_time from flights where fid='" + aid1 + "'", con);
+                adp.Fill(dt2);
+
+                src = dt2.Rows[0]["src_airp"].ToString();
+                dept = dt2.Rows[0]["dept_time"].ToString();
+                dest = dt2.Rows[0]["dest_airp"].ToString();
+                arr = dt2.Rows[0]["arr_time"].ToString();
+                Label13.Text = aid1;
+            }
+           
+
+            Label1.Text = Convert.ToString(bid);
+            Label2.Text = Session["Class"].ToString();
+            Label3.Text = ((HttpUtility.UrlDecode(a[2]).Split(':'))[1].Split(' '))[1];
+            Label4.Text = src;
+            Label5.Text = dest;
+            Label6.Text = dept;
+            Label7.Text = arr;
+            Label8.Text = Session["d_lug"].ToString();
+            Label9.Text = Session["e_luggage"].ToString();
+         
+            if(Session["e_luggage"].ToString()=="0")
+            {
+                Label10.Text = "0";
+            }
+            else
+            {
+                Label10.Text = Session["e_lug_price"].ToString();
+            }
+
+            Label11.Text = Session["gprice"].ToString();
+
+            GridView1.DataSource = dt5;
+            GridView1.DataBind();
+
+            GridView2.DataSource = (DataTable)Session["temp_cld"];
+            GridView2.DataBind();
+
         }
     }
 }

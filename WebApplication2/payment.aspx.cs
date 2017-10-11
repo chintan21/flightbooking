@@ -78,6 +78,7 @@ namespace WebApplication2
 
            gprice= (Convert.ToInt32(Session["price"])) + ((Convert.ToInt32(Session["e_luggage"])) * (Convert.ToInt32(Session["e_lug_price"])));
 
+            Session["gprice"] = gprice;
             Label16.Text = "Grand Total: " + Convert.ToString(gprice); 
 
             GridView1.DataSource= (DataTable)Session["temp_adt"];

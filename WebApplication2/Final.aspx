@@ -34,69 +34,83 @@
 
   
     </style>
-    <div class="col-md-12">
+    <div id="printableArea" class="col-md-12">
         <div class="panel panel-primary" style="background-color: rgba(3, 3, 3, 0.57)">
             <div class="panel-body">
-                <asp:Image ID="Image1" runat="server"></asp:Image>
                 <div class="col-xs-offset-1 col-md-10">
                     <div class="well">
                         <div class="row">
-                            <H1>you put your barcode here</H1>
+                          <asp:Image ID="Image1" runat="server"></asp:Image>
+
                         </div>
 
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td>Booking ID:</td>
-                                    <td>Class:</td>
-                                    <td>Date:</td>
+                                    <td>Booking ID:
+                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
+                                    <td>Class: <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></td>
+                                    <td>Date: <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></td>
                                 </tr>
 
                                 <tr>
-                                    <td>Source:</td>
-                                    <td>Destination:</td>
+                                    <td>Source: <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></td>
+                                    <td>Destination: <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label></td>
+                                    <td><asp:Label ID="Label12" runat="server" Text="Label"></asp:Label></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Departure Time: <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label></td>
+                                    <td>Arrival time: <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label></td>
+                                    <td>Flight ID:<asp:Label ID="Label13" runat="server" Text=""></asp:Label></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Free luggage: <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label></td>
+                                    <td>Extra luggage:<asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></td>
+                                    <td>Extra luggage fair: <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label></td>
+                                </tr>
+
+                                <tr>
                                     <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Departure Time:</td>
-                                    <td>Arrival time:</td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Free luggage:</td>
-                                    <td>Extra luggage:</td>
-                                    <td>Extra luggage fair:</td>
-                                </tr>
-
-                                <tr>
-                                    <td></td>
-                                    <td>Grand Total:</td>
+                                    <td>Grand Total: <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label></td>
                                     <td></td>
                                 </tr>
                             </tbody>
                         </table>
+<h3>Passanger Details:</h3>
+                        <asp:GridView ID="GridView1" runat="server" Height="112px" Width="754px">
+                        </asp:GridView>
 
+
+                        <br />
+
+
+  <asp:GridView ID="GridView2" runat="server" Height="112px" Width="757px">
+       
+    </asp:GridView>
                     </div>
 
-                    <div class="well">
-                        <div class="row">
-                            <div class="col-md-10">
-                        <h1>Thankyou for booking through Udaan..</h1></div>
-                        <div class="col-md-2">
-
-                            <input id="Button1" type="button" value="button" class="btn btn-primary" onclick="printDiv('printableArea')" />                            
-
-                        </div></div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
     </div>
+     <div class="well">
+                        <div class="row">
+                            <div class="col-md-10">
+                        <h1>Thankyou for booking through Udaan..</h1>
+                 <input id="Button1" type="button" value="print" class="btn btn-primary" onclick="printDiv('printableArea')" />  
+                            </div>
+                        <div class="col-md-2">
 
-    <asp:Label ID="Label1" runat="server" Text="Your ticket has booked..!"></asp:Label>
 
-    <h1>this is whrer</h1>
-    thisis where
+                        </div></div>
+                    </div>
+                               
+
+
+    
+
+    
 </asp:Content>

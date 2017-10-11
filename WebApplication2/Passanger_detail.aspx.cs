@@ -230,7 +230,7 @@ namespace WebApplication2
                     int lug = Convert.ToInt32(dt2.Rows[0]["D_lug"].ToString());
                     Label18.Text = Convert.ToString(tot - bk);
                     Label20.Text = Convert.ToString(lug * adt) + " Kg";
-
+                    Session["d_lug"] = Label20.Text;
                 }
                 else
                 {
@@ -275,7 +275,7 @@ namespace WebApplication2
                 int lug2 = Convert.ToInt32(dt2.Rows[0]["D_lug"].ToString());
 
                 Label20.Text = Convert.ToString(lug1 * adt) + " Kg, " + Convert.ToString(lug2 * adt) + " Kg";
-
+                Session["d_lug"] = Label20.Text;
                 dt2.Reset();
                 dt3.Reset();
 
