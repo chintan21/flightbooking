@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -58,6 +59,9 @@ namespace WebApplication2
             DataTable dt1 = (DataTable)Session["temp_adt"];
             int adt = dt1.Rows.Count;
 
+            GridView1.DataSource = dt1;
+            GridView1.DataBind();
+
 
 
             for (int i = 0; i < adt; i++)
@@ -80,6 +84,8 @@ namespace WebApplication2
             dt1.Reset();
 
             dt1 = (DataTable)Session["temp_cld"];
+            GridView2.DataSource = dt1;
+            GridView2.DataBind();
             int cld = 0;
             if (dt1 != null)
             {
@@ -113,7 +119,7 @@ namespace WebApplication2
                 adp.InsertCommand.Parameters.Add("@adt", SqlDbType.Int).Value = adt;
                 adp.InsertCommand.Parameters.Add("@cld", SqlDbType.Int).Value = cld;
                
-                adp.InsertCommand.Parameters.Add("@raid", SqlDbType.VarChar).Value = Session["depart_fid"].ToString() + Session["return_fid"].ToString();
+                adp.InsertCommand.Parameters.Add("@raid", SqlDbType.VarChar).Value = Session["depart_fid"].ToString() +","+ Session["return_fid"].ToString();
           
                 adp.InsertCommand.Parameters.Add("@rel", SqlDbType.VarChar).Value =Session["e_luggage"];
                 adp.InsertCommand.Parameters.Add("@dd", SqlDbType.VarChar).Value = Session["dt"];
@@ -124,6 +130,8 @@ namespace WebApplication2
                 adp.InsertCommand.ExecuteNonQuery();
 
             String aid1, aid2, raid1, raid2;
+
+            DataTable dt5 = new DataTable();
 
             if(type==0)
             {
@@ -143,9 +151,37 @@ namespace WebApplication2
 
                 adp.UpdateCommand = new SqlCommand("update Seat_booked set booked=booked+'" + adt + "' where fid='" + raid2 + "' and class='" + Convert.ToChar((Session["Class"].ToString()).FirstOrDefault()) + "' and bdate='" + Session["rdt"] + "'", con);
                 adp.UpdateCommand.ExecuteNonQuery();
+
+                DataTable dt7 = new DataTable();
+                SqlDataAdapter ad = new SqlDataAdapter("select src_airp,dest_airp,dept_time,arr_time from flights where fid='"+aid1+"'",con);
+                ad.Fill(dt7);
+
+               ad.SelectCommand = new SqlCommand("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + aid2 + "'", con);
+                ad.Fill(dt7);
+
+                ad.SelectCommand = new SqlCommand("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + raid1 + "'", con);
+                ad.Fill(dt7);
+
+                ad.SelectCommand = new SqlCommand("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + raid2 + "'", con);
+                ad.Fill(dt7);
+
+                Label4.Text = dt7.Rows[0]["src_airp"].ToString();
+                Label5.Text = dt7.Rows[1]["dest_airp"].ToString();
+                Label12.Text = dt7.Rows[0]["dest_airp"].ToString();
+                Label6.Text = dt7.Rows[0]["dept_time"].ToString();
+                Label7.Text = dt7.Rows[1]["arr_time"].ToString();
+                Label13.Text = aid1 + "," + aid2;
+
+                Label17.Text = dt7.Rows[2]["src_airp"].ToString();
+                Label18.Text = dt7.Rows[3]["dest_airp"].ToString();
+                Label19.Text = dt7.Rows[2]["dest_airp"].ToString();
+                Label20.Text = dt7.Rows[2]["dept_time"].ToString();
+                Label21.Text = dt7.Rows[3]["arr_time"].ToString();
+                Label22.Text = raid1 + "," + raid2;
+
             }
 
-            if(type==1)
+            if (type==1)
             {
                 aid1 = (Session["depart_fid"].ToString()).Split(',')[0];
                 raid1 = (Session["return_fid"].ToString()).Split(',')[0];
@@ -160,6 +196,29 @@ namespace WebApplication2
                 adp.UpdateCommand = new SqlCommand("update Seat_booked set booked=booked+'" + adt + "' where fid='" + raid2 + "' and class='" + Convert.ToChar((Session["Class"].ToString()).FirstOrDefault()) + "' and bdate='" + Session["rdt"] + "'", con);
                 adp.UpdateCommand.ExecuteNonQuery();
 
+                DataTable dt7 = new DataTable();
+                SqlDataAdapter ad = new SqlDataAdapter("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + aid1 + "'", con);
+                ad.Fill(dt7);
+
+                ad.SelectCommand = new SqlCommand("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + raid1 + "'", con);
+                ad.Fill(dt7);
+
+                ad.SelectCommand = new SqlCommand("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + raid2 + "'", con);
+                ad.Fill(dt7);
+
+                Label4.Text = dt7.Rows[0]["src_airp"].ToString();
+                Label5.Text = dt7.Rows[0]["dest_airp"].ToString();
+                //Label12.Text = dt7.Rows[0]["dest_airp"].ToString();
+                Label6.Text = dt7.Rows[0]["dept_time"].ToString();
+                Label7.Text = dt7.Rows[0]["arr_time"].ToString();
+                Label13.Text = aid1;
+
+                Label17.Text = dt7.Rows[1]["src_airp"].ToString();
+                Label18.Text = dt7.Rows[2]["dest_airp"].ToString();
+                //Label19.Text = dt7.Rows[0]["dest_airp"].ToString();
+                Label20.Text = dt7.Rows[1]["dept_time"].ToString();
+                Label21.Text = dt7.Rows[2]["arr_time"].ToString();
+                Label22.Text = raid1 + "," + raid2;
             }
 
             if(type==2)
@@ -177,6 +236,33 @@ namespace WebApplication2
 
                 adp.UpdateCommand = new SqlCommand("update Seat_booked set booked=booked+'" + adt + "' where fid='" + raid1 + "' and class='" + Convert.ToChar((Session["Class"].ToString()).FirstOrDefault()) + "' and bdate='" + Session["rdt"] + "'", con);
                 adp.UpdateCommand.ExecuteNonQuery();
+
+                DataTable dt7 = new DataTable();
+                SqlDataAdapter ad = new SqlDataAdapter("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + aid1 + "'", con);
+                ad.Fill(dt7);
+
+                ad.SelectCommand = new SqlCommand("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + aid2 + "'", con);
+                ad.Fill(dt7);
+
+                ad.SelectCommand = new SqlCommand("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + raid1 + "'", con);
+                ad.Fill(dt7);
+
+                Label4.Text = dt7.Rows[0]["src_airp"].ToString();
+                Label5.Text = dt7.Rows[1]["dest_airp"].ToString();
+                Label12.Text = dt7.Rows[0]["dest_airp"].ToString();
+                Label6.Text = dt7.Rows[0]["dept_time"].ToString();
+                Label7.Text = dt7.Rows[1]["arr_time"].ToString();
+                Label13.Text = aid1 + "," + aid2;
+
+                Label17.Text = dt7.Rows[2]["src_airp"].ToString();
+                Label18.Text = dt7.Rows[2]["dest_airp"].ToString();
+                //Label19.Text = dt7.Rows[0]["dest_airp"].ToString();
+                Label20.Text = dt7.Rows[2]["dept_time"].ToString();
+                Label21.Text = dt7.Rows[2]["arr_time"].ToString();
+                Label22.Text = raid1;
+
+
+
             }
 
             if(type==3)
@@ -189,7 +275,59 @@ namespace WebApplication2
 
                 adp.UpdateCommand = new SqlCommand("update Seat_booked set booked=booked+'" + adt + "' where fid='" + raid1 + "' and class='" + Convert.ToChar((Session["Class"].ToString()).FirstOrDefault()) + "' and bdate='" + Session["rdt"] + "'", con);
                 adp.UpdateCommand.ExecuteNonQuery();
+
+                DataTable dt7 = new DataTable();
+                SqlDataAdapter ad = new SqlDataAdapter("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + aid1 + "'", con);
+                ad.Fill(dt7);
+
+                ad.SelectCommand = new SqlCommand("select src_airp,dest_airp,dept_time,arr_time from flights where fid='" + raid1 + "'", con);
+                ad.Fill(dt7);
+
+                Label4.Text = dt7.Rows[0]["src_airp"].ToString();
+                Label5.Text = dt7.Rows[0]["dest_airp"].ToString();
+                //Label12.Text = dt7.Rows[0]["dest_airp"].ToString();
+                Label6.Text = dt7.Rows[0]["dept_time"].ToString();
+                Label7.Text = dt7.Rows[0]["arr_time"].ToString();
+                Label13.Text = aid1;
+
+                Label17.Text = dt7.Rows[1]["src_airp"].ToString();
+                Label18.Text = dt7.Rows[1]["dest_airp"].ToString();
+                //Label19.Text = dt7.Rows[0]["dest_airp"].ToString();
+                Label20.Text = dt7.Rows[1]["dept_time"].ToString();
+                Label21.Text = dt7.Rows[1]["arr_time"].ToString();
+                Label22.Text = raid1;
+
+
             }
+
+            if (File.Exists(Server.MapPath("Barcode.txt")))
+            {
+                File.Delete(Server.MapPath("BarCode.txt"));
+            }
+            File.WriteAllText(Server.MapPath("BarCode.txt"), Convert.ToString(bid));
+            Process.Start(Server.MapPath("BarCodeGenerate.exe"));
+
+
+            Label1.Text = Convert.ToString(bid);
+            Label2.Text = Session["class"].ToString();
+            Label3.Text = Session["dt"].ToString();
+
+            
+              
+          
+            Label15.Text = Session["class"].ToString();
+            Label16.Text = Session["rdt"].ToString();
+
+            Label26.Text = "₹"+Session["gprice"].ToString();
+            Label24.Text = Session["e_luggage"].ToString() + " Kg";
+            Label25.Text = Session["e_lug_price"].ToString() + " Kg";
+
+            Label8.Text = Session["free_lug1"].ToString();
+            Label23.Text = Session["free_lug2"].ToString();
+
+            Image1.ImageUrl = "images/" + Convert.ToString(bid) + ".png";
+
+
 
         }
     }

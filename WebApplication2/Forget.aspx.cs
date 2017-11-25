@@ -39,7 +39,7 @@ namespace WebApplication2
             mail.Subject = "UDAAN - Online Flight Booking";
             mail.Body = "Hello, " + (TextBox1.Text.Split('@'))[0] + ", " + "Your OTP is: "+otp;
 
-            SmtpServer.Port = 587;
+            SmtpServer.Port = 25;
             SmtpServer.Credentials = new System.Net.NetworkCredential("rohandhamecha45@gmail.com", "24111974");
             SmtpServer.EnableSsl = true;
 

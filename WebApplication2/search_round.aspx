@@ -76,7 +76,7 @@
     
        
                      
-    <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="112px" Width="630px" CssClass="table table-striped table-bordered table-condensed" HorizontalAlign="Left" OnRowCommand="GridView1_SelectedIndexChanged">
+    <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="112px" Width="601px" CssClass="table table-striped table-bordered table-condensed" HorizontalAlign="Left" OnRowCommand="GridView1_SelectedIndexChanged">
        
         <Columns>
             <asp:ButtonField Text="Select" />
@@ -96,7 +96,7 @@
 
    
 
-                 <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="112px" Width="630px" CssClass="table table-striped table-bordered table-condensed" HorizontalAlign="Right" OnRowCommand="GridView2_SelectedIndexChanged" Enabled="false">
+                 <asp:GridView ID="GridView2" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" Height="112px" Width="610px" CssClass="table table-striped table-bordered table-condensed" HorizontalAlign="Right" OnRowCommand="GridView2_SelectedIndexChanged" Enabled="false">
        
                      <Columns>
                          <asp:ButtonField Text="Select" />

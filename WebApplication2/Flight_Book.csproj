@@ -133,6 +133,11 @@
     <Content Include="Images\jetairways.png" />
     <Content Include="Images\spicejet.jpg" />
     <Content Include="Images\udaan_logo.png" />
+    <Content Include="Images_Specialoffer\1.jpg" />
+    <Content Include="Images_Specialoffer\2.jpg" />
+    <Content Include="Images_Specialoffer\3.jpg" />
+    <Content Include="Images_Specialoffer\4.jpg" />
+    <Content Include="Images_Specialoffer\5.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.2.1.min.js" />
@@ -170,6 +175,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Specialoffer.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -288,6 +294,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Specialoffer.aspx.cs">
+      <DependentUpon>Specialoffer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Specialoffer.aspx.designer.cs">
+      <DependentUpon>Specialoffer.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

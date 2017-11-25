@@ -20,13 +20,13 @@
                                       </div>
                                       <div class="col-xs-6">
                                                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
+                                          <!--      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>-->
                                         
                                         <br/>
                                                 <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
-                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
+                                        <!--  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>-->
                                          <asp:CompareValidator ID="CompareValidator7" runat="server" ControlToValidate="TextBox2" Type="Integer" Operator="DataTypeCheck"
                                             Display="Dynamic" ForeColor="Red"
                                             ErrorMessage="Must be a number"></asp:CompareValidator>
@@ -36,8 +36,8 @@
 
                                         <br/>
                                                 <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
-                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
+                                      <!--    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                         ErrorMessage="Required"  ForeColor="Red" Display="Dynamic" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>-->
                                         
                                           <br /><asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control"></asp:DropDownList></>
                                           <br /><asp:TextBox ID="TextBox5" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>

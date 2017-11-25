@@ -56,7 +56,7 @@
                                 <tr>
                                     <td>Source: <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></td>
                                     <td>Destination: <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label></td>
-                                    <td><asp:Label ID="Label12" runat="server" Text="Label"></asp:Label></td>
+                                    <td><asp:Label ID="Label12" runat="server" Text="Label" Visible="False"></asp:Label></td>
                                 </tr>
 
                                 <tr>
@@ -99,9 +99,16 @@
      <div class="well">
                         <div class="row">
                             <div class="col-md-10">
-                        <h1>Thankyou for booking through Udaan..</h1>
-                 <input id="Button1" type="button" value="print" class="btn btn-primary" onclick="printDiv('printableArea')" />  
+                                <table>
+                     <tr> 
+                 <td> <h1>Thankyou for booking through Udaan..</h1></td> 
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+               <td>  <input id="Button1" type="button" value="print" class="btn btn-primary" onclick="printDiv('printableArea')" /> </td> 
+                         </tr>           
+                         </table>
                             </div>
+                          
                         <div class="col-md-2">
 
 

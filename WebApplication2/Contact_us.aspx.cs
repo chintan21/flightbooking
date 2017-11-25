@@ -66,19 +66,20 @@ namespace WebApplication2
             SqlConnection con = new SqlConnection(constring);
             con.Open();
 
-            SqlDataAdapter adp = new SqlDataAdapter();
-            adp.InsertCommand=new SqlCommand("insert into Contact_us(email,description,mobileno,name,Country)values(@email,@descn,@mno,@name,@cny)", con);
+           
+                SqlDataAdapter adp = new SqlDataAdapter();
+                adp.InsertCommand = new SqlCommand("insert into Contact_us(email,description,mobileno,name,Country)values(@email,@descn,@mno,@name,@cny)", con);
 
-            adp.InsertCommand.Parameters.Add("@name", SqlDbType.VarChar).Value = TextBox1.Text;
-            adp.InsertCommand.Parameters.Add("@mno", SqlDbType.Decimal).Value = Convert.ToDecimal(TextBox2.Text);
-            adp.InsertCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = TextBox3.Text;
-            adp.InsertCommand.Parameters.Add("@cny", SqlDbType.VarChar).Value = DropDownList1.SelectedValue;
-            adp.InsertCommand.Parameters.Add("@descn",SqlDbType.VarChar).Value = TextBox5.Text;
+                adp.InsertCommand.Parameters.Add("@name", SqlDbType.VarChar).Value = TextBox1.Text;
+                adp.InsertCommand.Parameters.Add("@mno", SqlDbType.Decimal).Value = Convert.ToDecimal(TextBox2.Text);
+                adp.InsertCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = TextBox3.Text;
+                adp.InsertCommand.Parameters.Add("@cny", SqlDbType.VarChar).Value = DropDownList1.SelectedValue;
+                adp.InsertCommand.Parameters.Add("@descn", SqlDbType.VarChar).Value = TextBox5.Text;
 
-            adp.InsertCommand.ExecuteNonQuery();
+                adp.InsertCommand.ExecuteNonQuery();
 
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('We will contact you soon..!')", true);
-
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('We will contact you soon..!')", true);
+           
         }
     }
 }

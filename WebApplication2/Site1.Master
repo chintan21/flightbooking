@@ -83,7 +83,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active" ><a><asp:Button ID="Button8" class="btn btn-primary" runat="server" Text="Home" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button8_Click" /></a></li>
-        <li><a><asp:Button ID="Button9" class="btn btn-primary" runat="server" Text="Special Offers" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" /></a></li>
+        <li><a><asp:Button ID="Button9" class="btn btn-primary" runat="server" Text="Special Offers" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button9_Click" /></a></li>
          <li><a>
              <asp:Button ID="Button13" runat="server" Text="Enter in Database" class="btn btn-primary" Visible="False" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button13_Click"/></a></li>
         <li><a ><asp:Button ID="Button6" class="btn btn-primary" runat="server" Text="Baggage" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" OnClick="Button6_Click" /></a></li>
@@ -102,8 +102,7 @@
           <li><a><asp:Button ID="Button10" class="btn btn-primary" runat="server" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" Visible="False" OnClick="Button10_Click" /></a></li>
           <li><a><asp:Button ID="Button12" class="btn btn-primary" runat="server" ForeColor="White" BorderStyle="None" BackColor="Black" BorderColor="Black" BorderWidth="0px" Visible="False" OnClick="Button12_Click" Text="Logout" /></a></li>
           
-      
-          
+         
           </ul>
   </div>
 </nav>

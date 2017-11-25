@@ -798,6 +798,8 @@ namespace WebApplication2
             Session["temp_cld"] = dt1;
             Session["e_luggage"] = TextBox1.Text;
             Session["e_lug_price"] = Label13.Text;
+            Session["free_lug1"] = Label20.Text;
+            Session["free_lug2"] = Label5.Text;
 
 
 

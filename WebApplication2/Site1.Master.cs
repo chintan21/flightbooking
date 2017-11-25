@@ -41,6 +41,7 @@ namespace WebApplication2
                     Button14.Visible = true;
 
 
+
                 }
                 else
                 {
@@ -54,7 +55,8 @@ namespace WebApplication2
                     Button10.Text = "Hello, " +a;
                     Session["user"] = a;
                     Button12.Visible = true;
-                    Button14.Visible = true;
+                    Button14.Visible = false;
+                    Button2.Visible = true;
                 }
             }
             else
@@ -249,21 +251,15 @@ namespace WebApplication2
         protected void Button12_Click(object sender, EventArgs e)
         {
             count3 = 0;
-            Response.Redirect("#");
+            Response.Redirect("Default.aspx");
             
         }
 
         protected void Button8_Click(object sender, EventArgs e)
         {
-            if(Button10.Visible==true)
-            {
-                String url = (String.Format("Default.aspx?user={0}", a));
-                Response.Redirect(url, false);
-            }
-            else
-            {
+          
                 Response.Redirect("Default.aspx");
-            }
+            
             
         }
 
@@ -309,6 +305,11 @@ namespace WebApplication2
         {
             Response.Redirect("Database.aspx");
 
+        }
+
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Specialoffer.aspx");
         }
     }
 }
