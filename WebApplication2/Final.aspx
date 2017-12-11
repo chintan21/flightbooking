@@ -39,10 +39,19 @@
             <div class="panel-body">
                 <div class="col-xs-offset-1 col-md-10">
                     <div class="well">
-                        <div class="row">
-                          <asp:Image ID="Image1" runat="server"></asp:Image>
+                          
 
-                        </div>
+
+                        <div class="row">        
+                            <asp:Image ID="Image1" runat="server" Width="200px" Height="50px"></asp:Image>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="Images/udaan_logo.png" width="150px" height="75px" />
+                            </div>
+
 
                         <table class="table table-bordered">
                             <tbody>
@@ -56,7 +65,7 @@
                                 <tr>
                                     <td>Source: <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></td>
                                     <td>Destination: <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label></td>
-                                    <td><asp:Label ID="Label12" runat="server" Text="Label" Visible="False"></asp:Label></td>
+                                    <td><asp:Label ID="Label12" runat="server" Text="" Visible="true"></asp:Label></td>
                                 </tr>
 
                                 <tr>

@@ -15,7 +15,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Drawing;
-
+using GemBox.Document;
 
 namespace WebApplication2
 {
@@ -230,8 +230,212 @@ namespace WebApplication2
 
             Image1.ImageUrl = "images/" + Convert.ToString(bid) + ".png";
 
+
+
+            Page.Title = src + " to " + dest;
+
+         
+            
+                 string body = string.Empty;
+                 using (StreamReader reader = new StreamReader(Server.MapPath("~/mail.html")))
+                 {
+                     body = reader.ReadToEnd();
+                 }
+                 body = body.Replace("{UserName}",Session["user"].ToString());
+            body = body.Replace("{0}", "Booking ID:" + Label1.Text);
+            body = body.Replace("{1}", "Class:" + Label2.Text);
+            body = body.Replace("{2}", "Date: " +(Convert.ToDateTime(Label3.Text)).ToString("dd.MM.yyyy"));
+            body = body.Replace("{3}", "Source:" + Label4.Text);
+            body = body.Replace("{4}", "Destination:" + Label5.Text);
+            body = body.Replace("{5}",  Label12.Text);
+            body = body.Replace("{6}", "Departure Time: " + Label6.Text);
+            body = body.Replace("{7}", "Arrival Time:" + Label7.Text);
+            body = body.Replace("{8}", "Flight ID:" + Label13.Text);
+            body = body.Replace("{9}", "Free Luggage:" + Label8.Text);
+            body = body.Replace("{10}", "             ");
+            body = body.Replace("{11}", "Extra Luggage:" + Label9.Text);
+            body = body.Replace("{12}", "             ");
+            body = body.Replace("{13}", "Total Price:" +Label11.Text);
+            body = body.Replace("{14}", "             ");
+
+
+            int acount = GridView1.Rows.Count;
+
+            if(acount>0)
+            {
+                body = body.Replace("{40}",GridView1.Rows[0].Cells[0].Text);
+                body = body.Replace("{41}", GridView1.Rows[0].Cells[1].Text);
+                body = body.Replace("{42}", GridView1.Rows[0].Cells[2].Text);
+                body = body.Replace("{43}", GridView1.Rows[0].Cells[3].Text);
+                body = body.Replace("{44}", GridView1.Rows[0].Cells[4].Text);
+
+                if(acount>1)
+                {
+                    body = body.Replace("{45}", GridView1.Rows[1].Cells[0].Text);
+                    body = body.Replace("{46}", GridView1.Rows[1].Cells[1].Text);
+                    body = body.Replace("{47}", GridView1.Rows[1].Cells[2].Text);
+                    body = body.Replace("{48}", GridView1.Rows[1].Cells[3].Text);
+                    body = body.Replace("{49}", GridView1.Rows[1].Cells[4].Text);
+
+                    if(acount>2)
+                    {
+                        body = body.Replace("{50}", GridView1.Rows[2].Cells[0].Text);
+                        body = body.Replace("{51}", GridView1.Rows[2].Cells[1].Text);
+                        body = body.Replace("{52}", GridView1.Rows[2].Cells[2].Text);
+                        body = body.Replace("{53}", GridView1.Rows[2].Cells[3].Text);
+                        body = body.Replace("{54}", GridView1.Rows[2].Cells[4].Text);
+
+                        if(acount>3)
+                        {
+                            body = body.Replace("{15}", GridView1.Rows[3].Cells[0].Text);
+                            body = body.Replace("{16}", GridView1.Rows[3].Cells[1].Text);
+                            body = body.Replace("{17}", GridView1.Rows[3].Cells[2].Text);
+                            body = body.Replace("{18}", GridView1.Rows[3].Cells[3].Text);
+                            body = body.Replace("{19}", GridView1.Rows[3].Cells[4].Text);
+
+                            if(acount>4)
+                            {
+                                body = body.Replace("{20}", GridView1.Rows[4].Cells[0].Text);
+                                body = body.Replace("{21}", GridView1.Rows[4].Cells[1].Text);
+                                body = body.Replace("{22}", GridView1.Rows[4].Cells[2].Text);
+                                body = body.Replace("{23}", GridView1.Rows[4].Cells[3].Text);
+                                body = body.Replace("{24}", GridView1.Rows[4].Cells[4].Text);
+
+                                if(acount>5)
+                                {
+                                    body = body.Replace("{25}", GridView1.Rows[5].Cells[0].Text);
+                                    body = body.Replace("{26}", GridView1.Rows[5].Cells[1].Text);
+                                    body = body.Replace("{27}", GridView1.Rows[5].Cells[2].Text);
+                                    body = body.Replace("{28}", GridView1.Rows[5].Cells[3].Text);
+                                    body = body.Replace("{29}", GridView1.Rows[5].Cells[4].Text);
+                                }
+                            }
+
+                        }
+                    }
+                }              
+            }
+
+            if(acount<6)
+            {
+                body = body.Replace("{25}", null);
+                body = body.Replace("{26}", null);
+                body = body.Replace("{27}",null);
+                body = body.Replace("{28}", null);
+                body = body.Replace("{29}", null);
+
+                if(acount<5)
+                {
+                    body = body.Replace("{20}", null);
+                    body = body.Replace("{21}", null);
+                    body = body.Replace("{22}", null);
+                    body = body.Replace("{23}", null);
+                    body = body.Replace("{24}", null);
+
+                    if(acount<4)
+                    {
+                        body = body.Replace("{15}", null);
+                        body = body.Replace("{16}", null);
+                        body = body.Replace("{17}", null);
+                        body = body.Replace("{18}", null);
+                        body = body.Replace("{19}", null);
+
+                        if(acount<3)
+                        {
+                            body = body.Replace("{50}", null);
+                            body = body.Replace("{51}", null);
+                            body = body.Replace("{52}", null);
+                            body = body.Replace("{53}", null);
+                            body = body.Replace("{54}", null);
+
+                            if(acount<2)
+                            {
+                                body = body.Replace("{45}", null);
+                                body = body.Replace("{46}", null);
+                                body = body.Replace("{47}", null);
+                                body = body.Replace("{48}", null);
+                                body = body.Replace("{49}", null);
+
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            int acount1 = GridView2.Rows.Count;
+
+            if(acount1==0)
+            {
+                body = body.Replace("{30}", null);
+                body = body.Replace("{31}", null);
+                body = body.Replace("{32}", null);
+               
+                body = body.Replace("{35}", null);
+                body = body.Replace("{36}", null);
+                body = body.Replace("{37}", null);
+                body = body.Replace("{99}", null);
+
+                body = body.Replace("{90}", null);
+                body = body.Replace("{91}", null);
+                body = body.Replace("{92}", null);
+            }
+
+            if (acount1==1)
+            {
+                body = body.Replace("{99}", "Child");
+                body = body.Replace("{90}", "Name");
+                body = body.Replace("{91}", "Age");
+                body = body.Replace("{92}", "Gender");
+
+                body = body.Replace("{30}", GridView2.Rows[0].Cells[0].Text);
+                body = body.Replace("{31}", GridView2.Rows[0].Cells[1].Text);
+                body = body.Replace("{32}", GridView2.Rows[0].Cells[2].Text);
+               
+                body = body.Replace("{35}", null);
+                body = body.Replace("{36}", null);
+                body = body.Replace("{37}", null);
+              
+            }
+
+            if(acount1==2)
+            {
+                body = body.Replace("{99}", "Children");
+                body = body.Replace("{90}", "Name");
+                body = body.Replace("{91}", "Age");
+                body = body.Replace("{92}", "Gender");
+
+                body = body.Replace("{30}", GridView2.Rows[0].Cells[0].Text);
+                body = body.Replace("{31}", GridView2.Rows[0].Cells[1].Text);
+                body = body.Replace("{32}", GridView2.Rows[0].Cells[2].Text);
+               
+                body = body.Replace("{35}", GridView2.Rows[1].Cells[0].Text);
+                body = body.Replace("{36}", GridView2.Rows[1].Cells[1].Text);
+                body = body.Replace("{37}", GridView2.Rows[1].Cells[2].Text);
+              
+            }
+
+            MailMessage mail = new MailMessage();
+                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+
+                 mail.From = new MailAddress("rohandhamecha45@gmail.com");
+                 mail.To.Add(Session["user"].ToString());
+                 mail.Subject = "UDAAN - Online Flight Booking";
+                 mail.Body = body;
+                 mail.IsBodyHtml = true;
+
+
+
+                 SmtpServer.Port = 25;
+                 SmtpServer.Credentials = new System.Net.NetworkCredential("rohandhamecha45@gmail.com", "24111974");
+                 SmtpServer.EnableSsl = true;
+
+                 SmtpServer.Send(mail);
+
         }
 
-
+       
+      
     }
 }

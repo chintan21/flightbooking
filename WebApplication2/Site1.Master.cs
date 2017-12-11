@@ -33,7 +33,7 @@ namespace WebApplication2
                     Button10.Visible = true;
                     Button10.Text = "Hello  " +a;
                     Button12.Visible = true;
-                    Button11.Visible = true;
+                    //Button11.Visible = true;
                     Button7.Visible = false;
                     Button6.Visible = false;
                     Button9.Visible = false;
@@ -313,3 +313,4 @@ namespace WebApplication2
         }
     }
 }
+ 

@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#home">Add Flight</a></li>
-                        <li><a data-toggle="tab" href="#menu1">Feedbacks</a></li>
+                        <%--<li><a data-toggle="tab" href="#menu1">Feedbacks</a></li>--%>
                       
 
 

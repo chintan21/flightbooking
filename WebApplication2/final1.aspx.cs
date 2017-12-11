@@ -28,6 +28,13 @@ namespace WebApplication2
 
             SqlDataAdapter adp = new SqlDataAdapter();
 
+            if (File.Exists(Server.MapPath("Barcode.txt")))
+            {
+                File.Delete(Server.MapPath("BarCode.txt"));
+            }
+            File.WriteAllText(Server.MapPath("BarCode.txt"), Convert.ToString(bid));
+            Process.Start(Server.MapPath("BarCodeGenerate.exe"));
+
             if (HttpUtility.UrlDecode(a[1]) == "NetBanking")
             {
                
@@ -300,12 +307,7 @@ namespace WebApplication2
 
             }
 
-            if (File.Exists(Server.MapPath("Barcode.txt")))
-            {
-                File.Delete(Server.MapPath("BarCode.txt"));
-            }
-            File.WriteAllText(Server.MapPath("BarCode.txt"), Convert.ToString(bid));
-            Process.Start(Server.MapPath("BarCodeGenerate.exe"));
+            
 
 
             Label1.Text = Convert.ToString(bid);
